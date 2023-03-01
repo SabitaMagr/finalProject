@@ -524,6 +524,10 @@ body {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
 }
@@ -533,6 +537,14 @@ body {
   right: 0px;
   bottom: 0px;
   left: 0px;
+}
+
+.-top-0 {
+  top: -0px;
+}
+
+.-top-1 {
+  top: -0.25rem;
 }
 
 .right-0 {
@@ -552,6 +564,10 @@ body {
   margin-right: auto;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .ml-20 {
   margin-left: 5rem;
 }
@@ -568,6 +584,10 @@ body {
   margin-top: 0.5rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .flex {
   display: flex;
 }
@@ -576,8 +596,20 @@ body {
   height: 100%;
 }
 
+.h-\[3rem\] {
+  height: 3rem;
+}
+
 .h-\[9\%\] {
   height: 9%;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .w-\[100\%\] {
@@ -586,6 +618,10 @@ body {
 
 .w-\[20\%\] {
   width: 20%;
+}
+
+.w-\[30\%\] {
+  width: 30%;
 }
 
 .w-\[40\%\] {
@@ -600,12 +636,28 @@ body {
   width: 100%;
 }
 
+.w-\[3\\0\%\] {
+  width: 3\0%;
+}
+
+.w-\[0\%\] {
+  width: 0%;
+}
+
+.w-\[60\%\] {
+  width: 60%;
+}
+
 .flex-col {
   flex-direction: column;
 }
 
 .items-center {
   align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .justify-center {
@@ -620,12 +672,12 @@ body {
   gap: 0.5rem;
 }
 
-.gap-5 {
-  gap: 1.25rem;
+.gap-4 {
+  gap: 1rem;
 }
 
-.gap-6 {
-  gap: 1.5rem;
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .gap-60 {
@@ -674,6 +726,18 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.\!bg-cover {
+  background-size: cover !important;
+}
+
+.\!bg-center {
+  background-position: center !important;
+}
+
+.\!bg-no-repeat {
+  background-repeat: no-repeat !important;
+}
+
 .p-16 {
   padding: 4rem;
 }
@@ -707,13 +771,27 @@ body {
   padding-bottom: 0.5rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
+.pl-\[10rem\] {
+  padding-left: 10rem;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-\[2rem\] {
@@ -725,8 +803,21 @@ body {
   line-height: 1.75rem;
 }
 
+.font-\[600\] {
+  font-weight: 600;
+}
+
+.font-\[700\] {
+  font-weight: 700;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.text-\[\#09c3ed\] {
+  --tw-text-opacity: 1;
+  color: rgb(9 195 237 / var(--tw-text-opacity));
 }
 
 .text-red-600 {

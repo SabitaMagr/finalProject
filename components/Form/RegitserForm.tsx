@@ -5,10 +5,7 @@ import { useForm } from 'react-hook-form';
 import { FaUserAlt,FaKey } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri'
-
-interface RegisterProps{
-    editData?:Register;
-}
+import Logo from './Logo';
 
 export interface Register{
     id:number;
@@ -19,11 +16,23 @@ export interface Register{
     terms:string;
 }
 
-const RegitserForm = ({editData}:RegisterProps) => {
+const RegitserForm = () => {
     const {
         register,handleSubmit,
+        watch,
         setValue,formState:{errors},
     }= useForm<Register>();
+
+    const terms=watch('terms');
+    const password=watch('password');
+
+    const validatePassword=( value:string)=>{
+        if(value==password){
+            return Promise.resolve('');
+        }else{
+            return Promise.reject('Password didnot match!');
+        }
+    }
 
     const Router =useRouter();
     const saveRegisterForm = async(value:Register)=>{
@@ -41,8 +50,10 @@ const RegitserForm = ({editData}:RegisterProps) => {
                 Router.push("/login");
         };
   return (
-    <div className='flex mx-auto p-16 justify-center w-[100%] h-[100%] bg-gray-300'>
-        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex gap-6 bg-white border rounded-lg py-8 px-10">
+    <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}>
+    <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex gap-4 bg-white border rounded-lg py-8 px-10">
+            <Logo/>
+            {/* {terms? 'yes': 'NO'}  //checking */}
             <h1 className=' text-center font-bold text-[2rem]'>Sign Up</h1>
             <div className='relative '>
                 <div className='flex gap-5 items-center'>
@@ -77,11 +88,11 @@ const RegitserForm = ({editData}:RegisterProps) => {
             <div className=''>
                 <div className='flex gap-5 items-center'>
                     <span><RiLockPasswordFill size={24}/></span>
-                    <input type="text" placeholder='Password' 
+                    <input type="password" placeholder='Password' 
                     {...register("password",{required:true})}
                     className="outline-none px-2 border-gray-400 border py-1.5" />
                 </div>
-                    {errors?.name && (
+                    {errors?.password && (
                         <small className='w-full rounded-md  text-red-600 flex justify-center right-0 top-0'>
                             Password is Required.
                         </small>
@@ -90,36 +101,32 @@ const RegitserForm = ({editData}:RegisterProps) => {
             <div className=''>
                 <div className='flex gap-5 items-center'>
                     <span><FaKey size={24}/></span>
-                    <input type="text" placeholder='Re-Enter your Password' 
-                    {...register("repeatPassword",{required:true})}
+                    <input type="password" placeholder='Re-Enter your Password' 
+                    {...register("repeatPassword",{required:true , validate:validatePassword })}
                     className="outline-none px-2 border-gray-400 border py-1.5" />
                 </div>
-                    {errors?.name && (
+                    {errors?.repeatPassword && (
                         <small className='w-full rounded-md  text-red-600 flex justify-center right-0 top-0'>
-                            Re-Enter your Password is Required.
+                            {errors?.repeatPassword.message}
                         </small>
                     )}
             </div>
             <div className=''>
                 <div className='flex gap-5 items-center'>
-                    <input type="checkbox" id="termsAndCondition" value="termsAndCondition"
+                    <input type="checkbox" id="termsAndCondition" 
                     {...register("terms",{required:true})}
                     className="outline-none  px-2 border-gray-400 border font-bold py-1.5" />
                     <h3 className=' mt-1'>I agree all statements in Terms  of <br /> service</h3>
                 </div>
-                    {errors?.terms && (
+                    {!terms && (
                         <small className='w-full rounded-md  text-red-600 flex justify-center right-0 top-0'>
                             Accept the Terms and Condition.
                         </small>
                     )}
             </div>
-            <div className=' flex gap-10'>
-                <button type='submit' className=' bg-blue-700  hover:bg-blue-400 w-[40%] text-white font-bold text-lg  py-2 rounded-md'>
-                Register</button>
-                <Link href={`/login`}>
-                    <button type='submit' className=' bg-green-700  hover:bg-green-400 w-[7rem] text-white font-bold text-lg  py-2 rounded-md'>
-                    Login</button>
-                </Link>
+            <div className=' justify-center flex'>
+                <button type='submit' disabled={!terms} className=' bg-blue-700  hover:bg-blue-400 w-[40%] text-white font-bold text-lg  py-2 rounded-md'>
+                Register</button>               
                 
             </div>
         </form>

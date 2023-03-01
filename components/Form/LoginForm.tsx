@@ -2,9 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { FaUserAlt,FaKey } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
-import { RiLockPasswordFill } from 'react-icons/ri'
+import Logo from './Logo';
 
 interface RegisterProps{
     editData?:Register;
@@ -42,15 +40,17 @@ const LoginForm = () => {
         };
   return (
     <div>
-     <div className='flex mx-auto p-16 justify-center w-[100%] h-[100%] bg-gray-300'>
-        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex gap-6 bg-white border rounded-lg py-8 px-10">
-            <h1 className=' text-center font-bold text-[2rem]'>Login</h1>
+     <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}>
+        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex w-[30%] bg-white border rounded-lg py-8 px-10">
+                <Logo/>
+            <h1 className=' text-center font-bold text-[2rem] '>Login</h1>
+            <div className='flex-col flex gap-5 justify-center '>
             <div className='relative '>
-                <div className='flex gap-5 items-center'>
-                    <label htmlFor="username">User name</label>
-                    <input type="text" placeholder='User Name' 
+                <div className='items-center relative'>
+                    <label htmlFor="username" className=' mt-4 absolute -top-1 font-[700] ml-2 bg-white'>User name</label> <br />
+                    <input type="text" placeholder='Enter User Name' 
                     {...register("name",{required:true})}
-                    className="outline-none px-2 border-gray-400 border rounded-md py-1.5" />
+                    className="outline-none px-2 border-gray-400 h-[3rem] top-0 border w-full rounded-md py-1.5" />
                 </div>
                     {errors?.name && (
                         <small className='w-full text-red-600 flex justify-center right-0 top-0'>
@@ -59,11 +59,11 @@ const LoginForm = () => {
                     )}
             </div>
             <div className=''>
-                <div className='flex gap-5 items-center'>
-                    <label htmlFor="password">Password</label>                 
-                   <input type="text" placeholder='Password' 
+                <div className='items-center relative'>
+                    <label htmlFor="password" className=' absolute -top-0 font-[700] ml-2'>Password</label>   <br />               
+                   <input type="text" placeholder='Enter Password' 
                     {...register("password",{required:true})}
-                    className="outline-none px-2 border-gray-400 border py-1.5" />
+                    className="outline-none rounded-md px-2 w-full h-[3rem] border-gray-400 border py-1.5" />
                 </div>
                     {errors?.name && (
                         <small className='w-full rounded-md  text-red-600 flex justify-center right-0 top-0'>
@@ -71,13 +71,33 @@ const LoginForm = () => {
                         </small>
                     )}
             </div>
-            <div className='gap-10'>
-                <Link href={`/dashboard`}>
-                    <button type='submit' className=' justify-center bg-green-700  hover:bg-green-400 w-[7rem] text-white font-bold text-lg  py-2 rounded-md'>
-                    Login</button>
-                </Link>
-                
+            <div className=''>
+                <div className='flex gap-5 items-center'>
+                    <input type="checkbox" id="rememberMe" value="rememberMe"
+                    {...register("terms",{required:true})}
+                    className="outline-none  px-2 border-gray-400 border font-bold py-1.5" />
+                    <h3 className=' mt-1'>Remember Me</h3>
+                </div>
+                    {/* {errors?.terms && (
+                        <small className='w-full rounded-md  text-red-600 flex justify-center right-0 top-0'>
+                            Accept the Terms and Condition.
+                        </small>
+                    )} */}
             </div>
+            <div className=' justify-center flex'>
+                    <button type='submit'  className='  bg-green-700  hover:bg-green-400 w-[7rem] text-white font-bold text-lg  py-2 rounded-md'>
+                    Login</button>
+            </div>
+            <div>
+                <span className='font-[600]'>Not Registered?</span> 
+                <Link href={'/register'}>
+                        <span className=' text-[#09c3ed] font-[600]'>Create an Account</span>
+                </Link>
+            </div>
+            
+
+            </div>
+            
         </form>
     </div>
 
