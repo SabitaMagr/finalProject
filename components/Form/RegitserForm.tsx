@@ -50,7 +50,7 @@ const RegitserForm = () => {
                 Router.push("/login");
         };
   return (
-    <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}>
+    // <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}>
     <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex gap-4 bg-white border rounded-lg py-8 px-10">
             <Logo/>
             {/* {terms? 'yes': 'NO'}  //checking */}
@@ -130,7 +130,7 @@ const RegitserForm = () => {
                 
             </div>
         </form>
-    </div>
+    // </div>
   )
 }
 

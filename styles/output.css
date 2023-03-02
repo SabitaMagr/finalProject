@@ -636,18 +636,6 @@ body {
   width: 100%;
 }
 
-.w-\[3\\0\%\] {
-  width: 3\0%;
-}
-
-.w-\[0\%\] {
-  width: 0%;
-}
-
-.w-\[60\%\] {
-  width: 60%;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -704,11 +692,6 @@ body {
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-}
-
-.bg-gray-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
 .bg-green-700 {
@@ -771,11 +754,6 @@ body {
   padding-bottom: 0.5rem;
 }
 
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -787,11 +765,6 @@ body {
 
 .text-center {
   text-align: center;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .text-\[2rem\] {

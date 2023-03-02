@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react'
+import React, { SetStateAction } from 'react'
 import { useForm } from 'react-hook-form';
 import Logo from './Logo';
 
 interface RegisterProps{
     editData?:Register;
+     state:boolean,
+     setState:React.Dispatch<SetStateAction<boolean>>
 }
 
 export interface Register{
@@ -17,7 +19,7 @@ export interface Register{
     terms:string;
 }
 
-const LoginForm = () => {
+const LoginForm = ({setState,state}:RegisterProps) => {
     const {
         register,handleSubmit,
         setValue,formState:{errors},
@@ -40,8 +42,8 @@ const LoginForm = () => {
         };
   return (
     <div>
-     <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}>
-        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex w-[30%] bg-white border rounded-lg py-8 px-10">
+     {/* <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}> */}
+        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex w-[100%] bg-white border rounded-lg py-8 px-10">
                 <Logo/>
             <h1 className=' text-center font-bold text-[2rem] '>Login</h1>
             <div className='flex-col flex gap-5 justify-center '>
@@ -60,7 +62,7 @@ const LoginForm = () => {
             </div>
             <div className=''>
                 <div className='items-center relative'>
-                    <label htmlFor="password" className=' absolute -top-0 font-[700] ml-2'>Password</label>   <br />               
+                    <label htmlFor="password" className=' mt-4 absolute -top-1 font-[700] ml-2 bg-white'>Password</label>   <br />               
                    <input type="text" placeholder='Enter Password' 
                     {...register("password",{required:true})}
                     className="outline-none rounded-md px-2 w-full h-[3rem] border-gray-400 border py-1.5" />
@@ -102,7 +104,7 @@ const LoginForm = () => {
     </div>
 
       
-    </div>
+//  </div>
   )
 }
 
