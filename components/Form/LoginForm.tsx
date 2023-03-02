@@ -92,9 +92,7 @@ const LoginForm = ({setState,state}:RegisterProps) => {
             </div>
             <div>
                 <span className='font-[600]'>Not Registered?</span> 
-                <Link href={'/register'}>
-                        <span className=' text-[#09c3ed] font-[600]'>Create an Account</span>
-                </Link>
+                        <span onClick={()=>setState(s=>!s)} className=' text-[#09c3ed] font-[600]'>Create an Account</span>
             </div>
             
 
