@@ -1,3 +1,5 @@
+
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { SetStateAction } from 'react'
@@ -43,10 +45,10 @@ const LoginForm = ({setState,state}:RegisterProps) => {
   return (
     <div>
      {/* <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}> */}
-        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex w-[100%] bg-white border rounded-lg py-8 px-10">
+        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex w-[100%] bg-[#f0f1f5] border rounded-lg ">
+            <h1 className=' text-center font-bold text-[2rem]  border-x-[1px] border-b-[1px] hover:text-white hover:bg-black rounded-bl-[500rem] rounded-br-[500rem] mb-3 border-[#424242]'>Login</h1>
                 <Logo/>
-            <h1 className=' text-center font-bold text-[2rem] '>Login</h1>
-            <div className='flex-col flex gap-5 justify-center '>
+            <div className='flex-col flex gap-5 justify-center pb-8 px-10'>
             <div className='relative '>
                 <div className='items-center relative'>
                     <label htmlFor="username" className=' mt-4 absolute -top-1 font-[700] ml-2 bg-white'>User name</label> <br />
@@ -92,9 +94,7 @@ const LoginForm = ({setState,state}:RegisterProps) => {
             </div>
             <div>
                 <span className='font-[600]'>Not Registered?</span> 
-                <Link href={'/register'}>
-                        <span className=' text-[#09c3ed] font-[600]'>Create an Account</span>
-                </Link>
+                        <span onClick={()=>setState(s=>!s)} className=' text-[#09c3ed] font-[600]'>Create an Account</span>
             </div>
             
 
