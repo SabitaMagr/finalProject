@@ -27,6 +27,7 @@ const RegitserForm = () => {
     const terms = watch('terms');
     const password = watch('password');
     const repeatPassword = watch('repeatPassword');
+<<<<<<< HEAD
     // const validatePassword = (value: string) => {
     //     if (value != password) {
     //         return Promise.resolve('dddd');
@@ -34,6 +35,15 @@ const RegitserForm = () => {
     //         return Promise.reject('Password didnot match!');
     //     }
     // }
+=======
+    const validatePassword = (value: string) => {
+        if (value != password) {
+            return Promise.resolve('dddd');
+        } else {
+            return Promise.reject('Password didnot match!');
+        }
+    }
+>>>>>>> 46b6e935e2e0daf5fbb95721b9c7082c85a1e575
 
     const Router = useRouter();
     const saveRegisterForm = async (value: Register) => {
@@ -52,8 +62,12 @@ const RegitserForm = () => {
     };
     return (
         // <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}>
+<<<<<<< HEAD
         <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col bg-[#f0f1f5] flex gap-3 border rounded-lg">
             <h1 className=' text-center font-bold text-[2rem]  border-x-[1px] border-b-[1px] hover:text-white hover:bg-black rounded-bl-[500rem] rounded-br-[500rem]  border-[#424242]'>Sign In</h1>
+=======
+        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex gap-4 bg-white border rounded-lg py-8 px-10">
+>>>>>>> 46b6e935e2e0daf5fbb95721b9c7082c85a1e575
             <Logo />
             {/* {terms? 'yes': 'NO'}  //checking */}
             <div className='flex-col flex gap-5 justify-center pb-7 px-10'>
@@ -65,7 +79,11 @@ const RegitserForm = () => {
                         className="outline-none px-2 border-gray-400 border rounded-md py-1.5" />
                 </div>
                 {errors?.name && (
+<<<<<<< HEAD
                     <small className='w-full text-red-600 flex justify-center right-0 top-0 bottom-0'>
+=======
+                    <small className='w-full text-red-600 flex justify-center right-0 top-0'>
+>>>>>>> 46b6e935e2e0daf5fbb95721b9c7082c85a1e575
                         Name is Required.
                     </small>
                 )}
@@ -118,7 +136,11 @@ const RegitserForm = () => {
                 {errors.repeatPassword && (
                     <small className='w-full rounded-md  text-red-600 flex justify-center right-0 top-0'>
                         {errors.repeatPassword.type === 'validate'
+<<<<<<< HEAD
                             ? 'Password do not match'
+=======
+                            ? 'Passwords do not match'
+>>>>>>> 46b6e935e2e0daf5fbb95721b9c7082c85a1e575
                             : 'This field is required'}
                     </small>
                 )}
@@ -137,10 +159,21 @@ const RegitserForm = () => {
                 )}
             </div>
             <div className=' justify-center flex'>
+<<<<<<< HEAD
                 <button type='submit' disabled={!terms}  className={` 
                 // ${!errors ? ' bg-red-400' : 'bg-blue-600'}
                  bg-blue-700   w-[40%] text-white font-bold text-lg  py-2 rounded-md`}>
                     Register</button>
+=======
+                <button type='submit' disabled={!terms} className=' bg-blue-700  hover:bg-blue-400 w-[40%] text-white font-bold text-lg  py-2 rounded-md'>
+                    Register</button>
+
+            </div>
+        </form>
+        // </div>
+    )
+}
+>>>>>>> 46b6e935e2e0daf5fbb95721b9c7082c85a1e575
 
             </div>
         </div>
