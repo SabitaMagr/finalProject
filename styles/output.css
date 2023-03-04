@@ -555,6 +555,18 @@ body {
   top: 0px;
 }
 
+.top-10 {
+  top: 2.5rem;
+}
+
+.top-\[5rem\] {
+  top: 5rem;
+}
+
+.top-14 {
+  top: 3.5rem;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -855,6 +867,22 @@ body {
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pt-60 {
+  padding-top: 15rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pt-14 {
+  padding-top: 3.5rem;
 }
 
 .text-center {

@@ -11,7 +11,7 @@ const AdminSideBar = ({toggle}:Props) => {
     const router =useRouter();
   return (
     <div className={`min-h-screen text-white z-50
-    ${toggle ? "w-[5%]" :"w-[15%]"} bg-purple-600 fixed inset-0`}>
+    ${toggle ? "w-[5%] pt-16" :"w-[15%]"} bg-purple-600 fixed inset-0`}>
         <div className='flex justify-center'>
             {
                 !toggle && (

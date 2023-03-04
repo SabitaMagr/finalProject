@@ -9,7 +9,7 @@ interface Props{
 const Navbar = ({toggle,setToggle}:Props) => {
   return (
     <div
-    className={`fixed p-5 bg-white top-0 ${!toggle ? "pl-[5rem]" : "pl-[5rem]"} text-blac
+    className={`fixed p-5 bg-white top-0 ${toggle ? "pl-[5rem]" : "pl-[5rem]"} text-blac
      shadow-md flex justify-between left-0 right-0`}>
         <div className={`${!toggle ? "ml-36" : "ml-1"}`}>
             <span onClick={()=>setToggle((t)=>!t)}>
