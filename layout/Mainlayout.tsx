@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React, { useState } from 'react'
+import Navbar from './Navbar';
 import SideBar from './SideBar';
 
 interface Props{
@@ -18,7 +19,6 @@ const Mainlayout = ({title,children}:Props) => {
       <main className='w-full'>
         <SideBar/>
         <div className={`${!toggle ? "md:ml-[11rem] lg:ml-[14rem] xl:ml-[16rem] 2xl:ml-[21rem]" : "ml-[5rem]"}`}>
-          
         </div>
       </main>
     </>

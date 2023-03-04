@@ -632,6 +632,10 @@ body {
   width: 100%;
 }
 
+.w-\[15\%\] {
+  width: 15%;
+}
+
 .w-\[20\%\] {
   width: 20%;
 }
@@ -650,14 +654,6 @@ body {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[30\%\] {
-  width: 30%;
-}
-
-.w-\[15\%\] {
-  width: 15%;
 }
 
 .flex-col {
@@ -853,6 +849,10 @@ body {
   padding-left: 5rem;
 }
 
+.pt-16 {
+  padding-top: 4rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
 }
@@ -951,6 +951,10 @@ body {
 }
 
 @media (min-width: 1280px) {
+  .xl\:ml-\[16\.8rem\] {
+    margin-left: 16.8rem;
+  }
+
   .xl\:ml-\[16rem\] {
     margin-left: 16rem;
   }
