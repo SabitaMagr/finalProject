@@ -1,6 +1,8 @@
+import { BiUserCircle } from "react-icons/bi";
+
 interface SideBarInterface{
-    title:string;
-    link:string;
+    title?:string;
+    link?:string;
     icon?:React.ReactNode;
 }
 
@@ -26,8 +28,9 @@ const sideBarData:SideBarInterface[]=[
         link:'/contact'
     },
     {
-        title:'Register',
-        link:'/register'
+        title:'Login',
+        link:'/login',
+        icon:<BiUserCircle size={27} />
     }
 ]
 

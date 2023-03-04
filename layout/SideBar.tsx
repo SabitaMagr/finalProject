@@ -2,6 +2,7 @@ import sideBarData from '@/data/sideBarData'
 import Link from 'next/link'
 import React from 'react'
 
+
 const SideBar = () => {
   return (
     <div className=' h-[9%] text-center text-white z-50  bg-purple-600 fixed inset-0'>
@@ -14,7 +15,9 @@ const SideBar = () => {
                     sideBarData.map((data,i)=>{
                         return(
                             <Link key={i} href={data?.link}>
+                                <span></span>
                                 <li className='p-2 flex gap-2  hover:text-yellow-400'>
+                                    <span>{data?.icon}</span>
                                     <span>
                                         {data?.title}
                                     </span>
