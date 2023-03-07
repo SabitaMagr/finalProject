@@ -13,3 +13,14 @@ const register={
 export {
     register as registerUrl
 }
+
+const foodCategory={
+    get:'/foodCategory',
+    post:'/foodCategory',
+    put:'/foodCategory',
+    delete:'/foodCategory',
+}
+
+export {
+    foodCategory as foodCategoryUrl
+}
