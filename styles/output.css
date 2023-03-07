@@ -577,6 +577,11 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.mx-7 {
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
+}
+
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -641,6 +646,10 @@ body {
   height: 9%;
 }
 
+.h-\[70\%\] {
+  height: 70%;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -681,8 +690,16 @@ body {
   width: 100%;
 }
 
-.w-\[50\%\] {
-  width: 50%;
+.w-\[60\%\] {
+  width: 60%;
+}
+
+.w-\[70\%\] {
+  width: 70%;
+}
+
+.w-\[25\%\] {
+  width: 25%;
 }
 
 .flex-col {
@@ -733,8 +750,8 @@ body {
   gap: 15rem;
 }
 
-.gap-1 {
-  gap: 0.25rem;
+.gap-8 {
+  gap: 2rem;
 }
 
 .rounded-lg {
@@ -872,6 +889,10 @@ body {
   padding: 1.25rem;
 }
 
+.p-6 {
+  padding: 1.5rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -927,6 +948,16 @@ body {
   padding-bottom: 0.75rem;
 }
 
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -953,6 +984,26 @@ body {
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
 }
 
 .text-center {
@@ -988,6 +1039,11 @@ body {
   line-height: 1.75rem;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .font-\[600\] {
   font-weight: 600;
 }
@@ -998,6 +1054,10 @@ body {
 
 .font-bold {
   font-weight: 700;
+}
+
+.font-medium {
+  font-weight: 500;
 }
 
 .text-\[\#09c3ed\] {

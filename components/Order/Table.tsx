@@ -1,45 +1,43 @@
-import { userUrl } from '@/apis/list.api';
+import { orderUrl } from '@/apis/list.api';
 import { asyncGet } from '@/apis/rest.api';
 import React from 'react'
 import { useEffect, useState } from "react";
 
 
-export interface RegisterUser{
+export interface orderList{
     id:number;
     name:string;
-    password:string;
-    email:string;
-    rePassword:string;
+    price:string;
+    total:number;
+    status:string;
 }
 
 const Table = () => {
-    const [user,setUser]=useState<RegisterUser[]>([]);
-    const [filterUser,setFilterUser]=useState<RegisterUser[]>([]);
+    const [order,setorder]=useState<orderList[]>([]);
+    const [filterorder,setFilterorder]=useState<orderList[]>([]);
 
-    const fetchAllUser =async()=>{
-        const{data,error} =await asyncGet(userUrl.get);
+    const fetchAllOrder =async()=>{
+        const{data,error} =await asyncGet(orderUrl.get);
         if(data && !error){
-            setUser(data?.data as RegisterUser[]);
-            setFilterUser(data?.data as RegisterUser[]);
+            setorder(data?.data as orderList[]);
+            setFilterorder(data?.data as orderList[]);
         }
     };
     const filterSearch=(e:any)=>{
         const value=e.target.values;
         if(value){
-            setFilterUser(
-                user.filter(
+            setFilterorder(
+                order.filter(
                     (f)=>
-                    f.name?.toString().includes(value)||
-                    f.password?.toString().includes(value)
-                )
+                    f.name?.toString().includes(value)                )
             );
         }else{
-            setFilterUser(user);
+            setFilterorder(order);
         }
     };
 
     useEffect(()=>{
-        fetchAllUser();
+        fetchAllOrder();
     },[]);
   return (
     <div>
@@ -54,21 +52,23 @@ const Table = () => {
             <table className='w-full mt-3'>
                 <thead className='text-white bg-purple-600'>
                     <tr>
-                        <th className='p-3'>S.N</th>
-                        <th className='p-3'>User Name</th>
-                        <th className='p-3'>Password</th>
-                        <th className='p-3'>Email</th>
+                        <th className='p-3'>Order No:</th>
+                        <th className='p-3'>Items</th>
+                        <th className='p-3'>Price</th>
+                        <th className='p-3'>Total</th>
+                        <th className='p-3'>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {filterUser?.length > 0?(
-                        filterUser ?.map((data,i)=>{
+                    {filterorder?.length > 0?(
+                        filterorder ?.map((data,i)=>{
                             return(
                                 <tr className='hover:bg-gray-200 p-3 text-center'>
                                     <td className='p-3'>{i+1}</td>
                                     <td className='p-3'>{data.name}</td>
-                                    <td className='p-3'>{data.password}</td>
-                                    <td className='p-3'>{data.email}</td>
+                                    <td className='p-3'>{data.price}</td>
+                                    <td className='p-3'>{data.total}</td>
+                                    <td className='p-3'>{data.status}</td>
                                 </tr>
                             )
                         })

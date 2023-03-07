@@ -13,7 +13,7 @@ const adminSideBarData: SideBarInterface []= [
     {
         title:'Food Menu',
         icon:<BiFoodMenu/>,
-        link:'/menu'
+        link:'/food'
     },
     {
         title:'Orders',

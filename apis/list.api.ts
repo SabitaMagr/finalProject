@@ -3,15 +3,15 @@
 // } & Record<'get|post|put|delete',string>
 
 
-const register={
-   get:'/register',
-   post:'/register',
-   put:'/register/',
-   delete:'/register/',
+const user={
+   get:'/user',
+   post:'/user',
+   put:'/user/',
+   delete:'/user/',
 }
 
 export {
-    register as registerUrl
+    user as userUrl
 }
 
 const foodCategory={
@@ -23,4 +23,27 @@ const foodCategory={
 
 export {
     foodCategory as foodCategoryUrl
+}
+
+const orderList={
+    get:'/order',
+    post:'/order',
+    put:'/order/',
+    delete:'/order/',
+}
+
+export {
+    orderList as orderUrl
+}
+
+
+const FoodMenu={
+    get:'/foodMenu',
+    post:'/foodMenu',
+    put:'/foodMenu',
+    delete:'/foodMenu',
+}
+
+export {
+    FoodMenu as FoodMenuUrl
 }
