@@ -6,8 +6,8 @@ import React, { SetStateAction } from 'react'
 import { useForm } from 'react-hook-form';
 import Logo from './Logo';
 
-interface RegisterProps{
-    editData?:Register;
+interface LoginProps{
+    // editData?:Register;
      state:boolean,
      setState:React.Dispatch<SetStateAction<boolean>>
 }
@@ -21,7 +21,7 @@ export interface Register{
     terms:string;
 }
 
-const LoginForm = ({setState,state}:RegisterProps) => {
+const LoginForm = ({setState,state}:LoginProps) => {
     const {
         register,handleSubmit,
         setValue,formState:{errors},
@@ -43,7 +43,7 @@ const LoginForm = ({setState,state}:RegisterProps) => {
                 Router.push("/login");
         };
   return (
-    <div>
+    <div className=' z-50'>
      {/* <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}> */}
         <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col flex w-[100%] bg-[#f0f1f5] border rounded-lg ">
             <h1 className=' text-center font-bold text-[2rem]  border-x-[1px] border-b-[1px] hover:text-white hover:bg-black rounded-bl-[500rem] rounded-br-[500rem] mb-3 border-[#424242]'>Login</h1>

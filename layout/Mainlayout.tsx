@@ -5,7 +5,7 @@ import SideBar from './SideBar';
 
 interface Props{
     title?:string;
-    children?:string;
+    children?:React.ReactNode;
 }
 
 const Mainlayout = ({title,children}:Props) => {
@@ -18,8 +18,8 @@ const Mainlayout = ({title,children}:Props) => {
       </Head>
       <main className='w-full'>
         <SideBar/>
-        <div className={`${!toggle ? "md:ml-[11rem] lg:ml-[14rem] xl:ml-[16rem] 2xl:ml-[21rem]" : "ml-[5rem]"}`}>
-        </div>
+        {/* <div className={`${!toggle ? "md:ml-[11rem] lg:ml-[14rem] xl:ml-[16rem] 2xl:ml-[21rem]" : "ml-[5rem]"}`}> */}
+        {/* </div> */}
       </main>
     </>
   )

@@ -1,12 +1,18 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react'
 import { useForm } from 'react-hook-form';
+import React, { SetStateAction } from 'react'
 import { FaUserAlt, FaKey } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri'
 import Logo from './Logo';
+
+interface RegisterProps{
+    editData?:Register;
+     state:boolean,
+     setState:React.Dispatch<SetStateAction<boolean>>
+}
 
 export interface Register {
     id: number;
@@ -17,7 +23,7 @@ export interface Register {
     terms: string;
 }
 
-const RegitserForm = () => {
+const RegitserForm = ({state,setState}:RegisterProps) => {
     const {
         register, handleSubmit,
         watch,
@@ -49,11 +55,11 @@ const RegitserForm = () => {
         //     Router.push("/login");
         // }
         alert("You are registered!!");
-        Router.push("/login");
+        setState(s=>!s)
     };
     return (
         // <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}>
-        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className="flex-col bg-[#f0f1f5] flex gap-3 border rounded-lg">
+        <form action="" onSubmit={handleSubmit(saveRegisterForm)} className=" z-50 flex-col bg-[#f0f1f5] flex gap-3 border rounded-lg">
             <h1 className=' text-center font-bold text-[2rem]  border-x-[1px] border-b-[1px] hover:text-white hover:bg-black rounded-bl-[500rem] rounded-br-[500rem]  border-[#424242]'>Sign In</h1>
             <Logo />
             {/* {terms? 'yes': 'NO'}  //checking */}
@@ -138,9 +144,9 @@ const RegitserForm = () => {
                 )}
             </div>
             <div className=' justify-center flex'>
-                <button type='submit' disabled={!terms}  className={` 
-                // ${!errors ? ' bg-red-400' : 'bg-blue-600'}
-                 bg-blue-700   w-[40%] text-white font-bold text-lg  py-2 rounded-md`}>
+                <button type='submit' disabled={!terms}  className={`
+                // ${!errors ? ' bg-red-400' : 'bg-blue-600'}  
+                 bg-blue-700   w-[40%] text-white font-bold text-lg  py-2 rounded-md `}>
                     Register</button>
 
             </div>

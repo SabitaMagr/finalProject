@@ -8,12 +8,15 @@ interface SideBarInterface{
     title:string;
     icon:React.ReactNode
     link:string;
+    children?:{title:string;
+        icon:React.ReactNode
+        link:string;}[]
 }
 const adminSideBarData: SideBarInterface []= [
     {
         title:'Food Menu',
         icon:<BiFoodMenu/>,
-        link:'/food'
+        link:'/food',
     },
     {
         title:'Orders',

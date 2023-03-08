@@ -6,14 +6,14 @@ import React, { useState } from 'react'
 const login = () => {
   const [state, setState] = useState<boolean>(false);
   return (
-     <div className="flex mx-auto p-16  justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}> 
+     <div className=" relative flex mx-auto p-16  justify-start pl-[10rem] min-h-screen !bg-no-repeat !bg-cover !bg-center" style={{background:'url(/images/Login.avif)'}}> 
+     <div className=' absolute  bg-black bg-opacity-30 inset-0' />
       {
         !state ?
           <LoginForm setState={setState} state={state} />
           :
-          <RegitserForm />
+          <RegitserForm setState={setState} state={state}/>
       }
-      {/* <span onClick={() =>setState((state) => !state)}> {!state ? <LoginForm/> :<RegitserForm/>}</span> */}
     </div>
     // <LoginForm/>
   )

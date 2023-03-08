@@ -14,12 +14,16 @@ const breadCrumb:{title:string,link:string}[]=[
 
 const admin = () => {
   return (
-    <div>
-        <AdminMainLayout title={'Admin'}>
-            
-        </AdminMainLayout>
-    </div>
+       <Admin/>
   )
 }
 
 export default admin
+
+
+const Admin =()=>(
+        <AdminMainLayout title={'Admin'}>  
+        </AdminMainLayout>
+)
+        
+

@@ -15,14 +15,14 @@ const sideBarData:SideBarInterface[]=[
         title:'Our Menu',
         link:'/menu'
     },
-    {
-        title:'Gallery',
-        link:'/gallery'
-    },
-    {
-        title:'Our News',
-        link:'/news'
-    },
+    // {
+    //     title:'Gallery',
+    //     link:'/gallery'
+    // },
+    // {
+    //     title:'Our News',
+    //     link:'/news'
+    // },
     {
         title:'Contact Us',
         link:'/contact'
