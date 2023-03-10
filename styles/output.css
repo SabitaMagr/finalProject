@@ -633,10 +633,6 @@ body {
   display: table;
 }
 
-.inline-table {
-  display: inline-table;
-}
-
 .h-\[100\%\] {
   height: 100%;
 }
@@ -978,6 +974,10 @@ body {
   padding-bottom: 2rem;
 }
 
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
 .pl-\[10rem\] {
   padding-left: 10rem;
 }
@@ -1138,8 +1138,8 @@ body {
 }
 
 @media (min-width: 1280px) {
-  .xl\:ml-\[16\.8rem\] {
-    margin-left: 16.8rem;
+  .xl\:ml-\[13\.5rem\] {
+    margin-left: 13.5rem;
   }
 
   .xl\:ml-\[16rem\] {

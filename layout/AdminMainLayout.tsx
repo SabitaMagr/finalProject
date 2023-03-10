@@ -20,7 +20,7 @@ const AdminMainLayout = ({title,children}:Props) => {
         </Head>
         <main className='w-full'>
             <AdminSideBar toggle={toggle}/>
-            <div className={`${!toggle ? "md:ml-[11rem] lg:ml-[14rem] xl:ml-[16.8rem] 2xl:ml-[21rem]" : "ml-[5rem]"}`}>
+            <div className={`${!toggle ? "md:ml-[11rem] lg:ml-[14rem] xl:ml-[13.5rem] 2xl:ml-[21rem]" : "ml-[5rem]"}`}>
                 <Navbar setToggle={setToggle} toggle={toggle}/>
                 <div className='pt-16'>{children}</div>
             </div>

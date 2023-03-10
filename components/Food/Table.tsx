@@ -87,7 +87,7 @@ const Table = () => {
             {filteredFoodMenuflist?.length > 0 ? (
               filteredFoodMenuflist?.map((data, i) => {
                 return (
-                  <tr className="hover:bg-gray-200  p-3 text-center">
+                  <tr key={i} className="hover:bg-gray-200  p-3 text-center">
                     <td className="p-3 ">{i + 1}</td>
                     <td className="p-3">{data.name}</td>
                     <td className="p-3">{data.price}</td>

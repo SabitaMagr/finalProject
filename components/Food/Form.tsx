@@ -12,7 +12,7 @@ export interface FoodMenu {
   id: number;
   name: string;
   price: string;
-  photo:string;
+  photo: string;
 }
 const Form = ({ editData }: FormProps) => {
   const {
@@ -68,7 +68,7 @@ const Form = ({ editData }: FormProps) => {
         <div className=" relative items-center">
           <div className="flex  justify-center gap-2">
             <label htmlFor="" className=" text-lg p-2 w-[30%]">
-             Item:
+              Item:
             </label>
             <input
               placeholder="Enter Item"
@@ -86,7 +86,7 @@ const Form = ({ editData }: FormProps) => {
         <div className=" relative items-center">
           <div className="flex justify-center gap-2">
             <label htmlFor="" className="text-lg p-2 w-[30%]">
-             Price:
+              Price:
             </label>
             <input
               placeholder="Enter Price"
@@ -104,13 +104,13 @@ const Form = ({ editData }: FormProps) => {
         <div className=" relative items-center">
           <div className="flex justify-center gap-2">
             <label htmlFor="" className="text-lg p-2 w-[30%]">
-             Upload photo:
+              Upload photo:
             </label>
             <input
-            //   placeholder="Enter Price"
+              //   placeholder="Enter Price"
               {...register("photo", { required: true })}
               className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
-              type="text"
+              type="file"
             />
           </div>
           {errors?.price && (

@@ -3,33 +3,33 @@
 // } & Record<'get|post|put|delete',string>
 
 
-const user={
-   get:'/register',
-   post:'/register',
-   put:'/register/',
-   delete:'/register/',
+const user = {
+    get: '/register',
+    post: '/register',
+    put: '/register/',
+    delete: '/register/',
 }
 
 
-const foodCategory={
-    get:'/foodCategory',
-    post:'/foodCategory',
-    put:'/foodCategory',
-    delete:'/foodCategory',
+const foodCategory = {
+    get: '/food-category',
+    post: '/food-category',
+    put: '/food-category',
+    delete: '/food-category',
 }
 
-const orderList={
-    get:'/order',
-    post:'/order',
-    put:'/order/',
-    delete:'/order/',
+const orderList = {
+    get: '/order',
+    post: '/order',
+    put: '/order/',
+    delete: '/order/',
 }
 
-const FoodMenu={
-    get:'/foodMenu',
-    post:'/foodMenu',
-    put:'/foodMenu',
-    delete:'/foodMenu',
+const FoodMenu = {
+    get: '/foodMenu',
+    post: '/foodMenu',
+    put: '/foodMenu',
+    delete: '/foodMenu',
 }
 
 export {

@@ -1,9 +1,10 @@
-import adminSideBarData from '@/data/adminSideBarData';
+import adminSideBarData, { SideBarInterface } from '@/data/adminSideBarData';
 import Link from 'next/link';
 import {useState} from 'react';
 import { Router, useRouter } from 'next/router';
 import React from 'react'
 import index from '@/pages/food';
+import { FaAccusoft, FaAddressCard } from 'react-icons/fa';
 
 interface Props{
     toggle:boolean;
@@ -26,10 +27,11 @@ const AdminSideBar = ({toggle}:Props) => {
             <ul className=''>
                 {adminSideBarData.map((data,index)=>{
                     return(
-                           <Link key={index} href={data?.link ||'#' }>
-                           
+                           <>
                            {
                              !data?.children? 
+                           <Link key={index} href={data?.link ||'#' }>
+
                             <li className={`p-2 px-5 ${router.asPath== data.link ? "bg-purple-700" : ""}
                             hover:bg-purple-700 flex gap-2 items-center `}>
                                 <span>{data?.icon}</span>
@@ -39,24 +41,13 @@ const AdminSideBar = ({toggle}:Props) => {
                                 </span>
                                 }
                             </li>
-                            :
-                            <li className={`p-2 px-5 ${router.asPath== data.link ? "bg-purple-700" : ""}
-                            hover:bg-purple-700 flex gap-2 items-center `}>
-                                <span>{data?.icon}</span>
-                                {!toggle && 
-                                <span onClick={()=>setToggleBtn(s=>!s)} >{data.title}
-                                    </span>}
-                                {!togggleBtn?
-                                ''
-                                 :
-                                 <span className='flex flex-col'>
-                                 <Children children={data?.children}/>
-                                 </span>
-                                }
-                            </li>
-                            
-                           }
                             </Link>
+
+                            :
+                                 <Children toggle={toggle} data={data}/>
+                               
+                                }
+                                </>
                  )
                 })
                 }
@@ -68,28 +59,35 @@ const AdminSideBar = ({toggle}:Props) => {
 }
 
 export default AdminSideBar
-interface childrenProps{
-    children?:{
-    title:string;
-    link:string;
-    }[];
-}
-const Children =({children}:childrenProps) =>{
+
+const Children =({data,toggle}:{data:SideBarInterface,toggle:boolean}) =>{
     const [state,setState] =useState<boolean>(false);
     const router =useRouter();
     return(
-        <>
-        
-        { children?.map((data,i)=>{
-            return(
-                    <li  className={` block ${router.asPath== data.link ? "bg-purple-700" : ""}`}>
-                        {!state && 
-                                <span  className='block'>{data.title}</span>
-                        }
-                    </li>
-            )
-        })
-        }        
-      </>
+        <li className=''>
+              <span onClick={()=>setState(s=>!s)} className='hover:bg-purple-700 p-2 px-5 flex gap-2 items-center'>
+                <span>{data.icon}</span>
+              {!toggle &&
+              <span>{data?.title}</span>
+              }
+              </span>
+             {
+                state && !toggle &&  data?.children && 
+                <span className='block '>
+                {
+                 data?.children?.map((child,i)=>{
+                      return(
+                         <Link href={child?.link||'#'}>
+                          <span className='hover:bg-purple-700 pl-10 flex items-center gap-2'>
+                          <span><FaAddressCard size={30}/></span>
+                          <span>{child?.title}</span>
+                          </span></Link>
+                      )
+                  })
+                }
+                </span>
+             }
+              
+      </li>
     )
 }

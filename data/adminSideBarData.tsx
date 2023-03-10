@@ -4,7 +4,7 @@ import {GoTasklist} from 'react-icons/go'
 import {HiOutlineUserGroup} from 'react-icons/hi'
 
 
-interface SideBarInterface{
+export interface SideBarInterface{
     title:string;
     icon:React.ReactNode
     link?:string;
