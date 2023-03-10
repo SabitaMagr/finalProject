@@ -7,21 +7,27 @@ import {HiOutlineUserGroup} from 'react-icons/hi'
 interface SideBarInterface{
     title:string;
     icon:React.ReactNode
-    link:string;
+    link?:string;
     children?:{title:string;
-        icon:React.ReactNode
         link:string;}[]
 }
 const adminSideBarData: SideBarInterface []= [
     {
         title:'Food Menu',
         icon:<BiFoodMenu/>,
-        link:'/food',
+        children:[{
+            title:'Food Category',
+            link:'/foodCategory'
+        },
+        {
+            title:'Food',
+            link:'/food'
+        }]
     },
     {
         title:'Orders',
         icon:<GoTasklist/>,
-        link:'order'
+        link:'/order'
     },
     {
         title:'Users',

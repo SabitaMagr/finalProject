@@ -4,25 +4,18 @@
 
 
 const user={
-   get:'/user',
-   post:'/user',
-   put:'/user/',
-   delete:'/user/',
+   get:'/register',
+   post:'/register',
+   put:'/register/',
+   delete:'/register/',
 }
 
-export {
-    user as userUrl
-}
 
 const foodCategory={
     get:'/foodCategory',
     post:'/foodCategory',
     put:'/foodCategory',
     delete:'/foodCategory',
-}
-
-export {
-    foodCategory as foodCategoryUrl
 }
 
 const orderList={
@@ -32,11 +25,6 @@ const orderList={
     delete:'/order/',
 }
 
-export {
-    orderList as orderUrl
-}
-
-
 const FoodMenu={
     get:'/foodMenu',
     post:'/foodMenu',
@@ -45,5 +33,8 @@ const FoodMenu={
 }
 
 export {
-    FoodMenu as FoodMenuUrl
+    FoodMenu as FoodMenuUrl,
+    user as userUrl,
+    orderList as orderUrl,
+    foodCategory as foodCategoryUrl
 }

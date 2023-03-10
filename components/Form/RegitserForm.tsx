@@ -7,6 +7,8 @@ import { FaUserAlt, FaKey } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri'
 import Logo from './Logo';
+import { asyncPost } from '@/apis/rest.api';
+import { userUrl } from '@/apis/list.api';
 
 interface RegisterProps{
     editData?:Register;
@@ -46,16 +48,13 @@ const RegitserForm = ({state,setState}:RegisterProps) => {
     const saveRegisterForm = async (value: Register) => {
         const payload = {
             ...value,
-            id: new Date().getTime(),
         };
 
-        // const { data,error } =await asyncPost();
-        // if(data && !error){
-        //     alert("You are registered!!");
-        //     Router.push("/login");
-        // }
-        alert("You are registered!!");
-        setState(s=>!s)
+        const { data,error } =await asyncPost(userUrl.post, payload);
+        if(data && !error){
+            alert("You are registered!!");
+            setState(s=>!s)
+    }
     };
     return (
         // <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}>

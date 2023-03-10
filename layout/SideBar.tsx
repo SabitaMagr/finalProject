@@ -30,9 +30,9 @@ const SideBar = () => {
             </ul>
         </div>
         <div className='flex absolute justify-center  items-center border  inset-0'>
-        <div className=' p-20 bg-red-700 rounded-full mx-auto'>
-          <h1 className=' text-center font-extrabold text-2xl'> Cafe </h1>
-         </div>
+            <div className=' p-20 bg-red-700 rounded-full mx-auto'>
+                 <h1 className=' text-center font-extrabold text-2xl'> Cafe </h1>
+            </div>
         </div>
     </div>
   )

@@ -567,18 +567,6 @@ body {
   z-index: 999999;
 }
 
-.z-0 {
-  z-index: 0;
-}
-
-.-z-0 {
-  z-index: 0;
-}
-
-.-z-10 {
-  z-index: -10;
-}
-
 .m-3 {
   margin: 0.75rem;
 }
@@ -633,12 +621,8 @@ body {
   margin-top: 1rem;
 }
 
-.mt-0 {
-  margin-top: 0px;
-}
-
-.mt-0\.5 {
-  margin-top: 0.125rem;
+.block {
+  display: block;
 }
 
 .flex {
@@ -647,6 +631,10 @@ body {
 
 .table {
   display: table;
+}
+
+.inline-table {
+  display: inline-table;
 }
 
 .h-\[100\%\] {
@@ -753,10 +741,6 @@ body {
   gap: 30rem;
 }
 
-.gap-1 {
-  gap: 0.25rem;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
@@ -815,6 +799,11 @@ body {
   background-color: rgb(240 241 245 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
@@ -870,29 +859,12 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-opacity-60 {
-  --tw-bg-opacity: 0.6;
-}
-
-.bg-opacity-50 {
-  --tw-bg-opacity: 0.5;
-}
-
-.bg-opacity-25 {
-  --tw-bg-opacity: 0.25;
-}
-
 .bg-opacity-30 {
   --tw-bg-opacity: 0.3;
 }
 
-.bg-opacity-40 {
-  --tw-bg-opacity: 0.4;
+.bg-opacity-60 {
+  --tw-bg-opacity: 0.6;
 }
 
 .\!bg-cover {
@@ -1109,15 +1081,6 @@ body {
   border-radius: 0.375rem;
 }
 
-.hover\:border:hover {
-  border-width: 1px;
-}
-
-.hover\:\!bg-red-500:hover {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity)) !important;
-}
-
 .hover\:bg-black:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1143,11 +1106,6 @@ body {
   background-color: rgb(107 33 168 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-red-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1157,46 +1115,6 @@ body {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-.hover\:delay-1000:hover {
-  transition-delay: 1000ms;
-}
-
-.hover\:delay-500:hover {
-  transition-delay: 500ms;
-}
-
-.hover\:duration-1000:hover {
-  transition-duration: 1000ms;
-}
-
-.hover\:duration-\[2000\]:hover {
-  transition-duration: 2000;
-}
-
-.hover\:duration-\[100\]:hover {
-  transition-duration: 100;
-}
-
-.hover\:duration-\[500\]:hover {
-  transition-duration: 500;
-}
-
-.hover\:duration-\[1000\]:hover {
-  transition-duration: 1000;
-}
-
-.hover\:duration-\[1000s\]:hover {
-  transition-duration: 1000s;
-}
-
-.hover\:duration-\[1s\]:hover {
-  transition-duration: 1s;
-}
-
-.hover\:duration-\[5s\]:hover {
-  transition-duration: 5s;
 }
 
 .hover\:duration-\[2s\]:hover {
