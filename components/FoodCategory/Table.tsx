@@ -80,6 +80,7 @@ const Table = () => {
               <th className="p-3">SN</th>
               <th className="p-3">Category Code</th>
               <th className="p-3">Category Name</th>
+              <th className="p-3">Action</th>
             </tr>
           </thead>
           <tbody className="">
@@ -116,7 +117,7 @@ const Table = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-end gap-2 absolute bottom-0 right-0">
+      {/* <div className="flex justify-end gap-2 absolute bottom-0 right-0">
         <button className="p-1 px-2 border border-gray-700  rounded-md">
           1
         </button>
@@ -126,7 +127,7 @@ const Table = () => {
         <button className="p-1 px-2 border border-gray-700  rounded-md">
           3
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

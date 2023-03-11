@@ -1,38 +1,44 @@
 import React from "react";
-import {BiFoodMenu} from 'react-icons/bi'
-import {GoTasklist} from 'react-icons/go'
-import {HiOutlineUserGroup} from 'react-icons/hi'
+import { BiFoodMenu, BiCategory } from 'react-icons/bi'
+import { GoTasklist } from 'react-icons/go'
+import { HiOutlineUserGroup } from 'react-icons/hi'
+import { IoFastFoodSharp } from 'react-icons/io5'
 
 
-export interface SideBarInterface{
-    title:string;
-    icon:React.ReactNode
-    link?:string;
-    children?:{title:string;
-        link:string;}[]
+export interface SideBarInterface {
+    title: string;
+    icon: React.ReactNode
+    link?: string;
+    children?: {
+        title: string;
+        link: string;
+        icon?: React.ReactNode
+    }[]
 }
-const adminSideBarData: SideBarInterface []= [
+const adminSideBarData: SideBarInterface[] = [
     {
-        title:'Food Menu',
-        icon:<BiFoodMenu/>,
-        children:[{
-            title:'Food Category',
-            link:'/foodCategory'
+        title: 'Food Menu',
+        icon: <BiFoodMenu size={23} />,
+        children: [{
+            title: 'Food Category',
+            link: '/foodCategory',
+            icon: <BiCategory size={20} />
         },
         {
-            title:'Food',
-            link:'/food'
+            title: 'Food',
+            link: '/food',
+            icon: <IoFastFoodSharp size={20} />
         }]
     },
     {
-        title:'Orders',
-        icon:<GoTasklist/>,
-        link:'/order'
+        title: 'Orders',
+        icon: <GoTasklist size={23} />,
+        link: '/order'
     },
     {
-        title:'Users',
-        icon:<HiOutlineUserGroup/>,
-        link:'/user'
+        title: 'Users',
+        icon: <HiOutlineUserGroup size={23} />,
+        link: '/user'
     }
 
 ]

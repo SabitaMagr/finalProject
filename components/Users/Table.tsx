@@ -9,7 +9,6 @@ export interface RegisterUser {
     name: string;
     password: string;
     email: string;
-    rePassword: string;
 }
 
 const Table = () => {
@@ -23,8 +22,9 @@ const Table = () => {
             setFilterUser(data?.data as RegisterUser[]);
         }
     };
+
     const filterSearch = (e: any) => {
-        const value = e.target.values;
+        const value = e.target.value;
         if (value) {
             setFilterUser(
                 user.filter(
@@ -41,6 +41,8 @@ const Table = () => {
     useEffect(() => {
         fetchAllUser();
     }, []);
+
+
     return (
         <div>
             <div className='flex justify-between my-3 mt-4'>
