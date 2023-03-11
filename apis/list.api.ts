@@ -14,8 +14,8 @@ const user = {
 const foodCategory = {
     get: '/food-category',
     post: '/food-category',
-    put: '/food-category',
-    delete: '/food-category',
+    put: '/food-category/',
+    delete: '/food-category/',
 }
 
 const orderList = {

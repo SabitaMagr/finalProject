@@ -78,9 +78,11 @@ const Table = () => {
           <thead className=" text-white bg-purple-600  ">
             <tr className="">
               <th className="p-3">SN</th>
-              <th className="p-3">Item Name</th>
+              <th className="p-3">Food Name</th>
+              <th className="p-3">Food Category</th>
               <th className="p-3">Price</th>
               <th className="p-3">Photo</th>
+              <th className="p-3">Status</th>
             </tr>
           </thead>
           <tbody className="">
@@ -90,8 +92,10 @@ const Table = () => {
                   <tr key={i} className="hover:bg-gray-200  p-3 text-center">
                     <td className="p-3 ">{i + 1}</td>
                     <td className="p-3">{data.name}</td>
+                    <td className="p-3">{data.categoryType}</td>
                     <td className="p-3">{data.price}</td>
                     <td className="p-3">{data.photo}</td>
+                    <td className="p-3">{data.status}</td>
                     <td className="p-3 flex gap-2 justify-center">
                       <Link href={`/FoodMenu/${data.id}`}>
                         <button className="outline-none bg-green-600  px-2 py-0.5 rounded-md text-sm  text-white ">

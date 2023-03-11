@@ -77,7 +77,7 @@ const Children = ({ data, toggle }: { data: SideBarInterface, toggle: boolean })
                     {
                         data?.children?.map((child, i) => {
                             return (
-                                <Link href={child?.link || '#'}>
+                                <Link key={i} href={child?.link || '#'}>
                                     <span className='hover:bg-purple-700 pl-10 flex items-center gap-2'>
                                         <span>{child.icon}</span>
                                         <span>{child?.title}</span>

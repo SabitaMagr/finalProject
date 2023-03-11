@@ -28,7 +28,9 @@ const Update = () => {
     const id = router.query.id; //id from url
     const { data, error } = await asyncGet(foodCategoryUrl.get + "/" + id);
     if (data && !error) {
-        fetchFoodCategory();
+      // fetchFoodCategory();
+      setFoodCategory(data?.data)
+
     }
   };
 
