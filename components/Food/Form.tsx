@@ -13,7 +13,7 @@ interface FormProps {
 export interface FoodMenu {
   id: number;
   name: string;
-  price: string;
+  price: number;
   photo: string;
   status: string;
   categoryType: string;
@@ -40,7 +40,10 @@ const Form = ({ editData }: FormProps) => {
     const form = new FormData();
     form.append('name', value.name)
     form.append('photo', value.photo)
-    form.append('name', value.name)
+    form.append('price', value.price)
+    form.append('status',value.status)
+    form.append('categoryType',value.categoryType)
+
     if (editData && editData?.id) {
       //update
       const { data, error } = await asyncPut(
@@ -53,7 +56,8 @@ const Form = ({ editData }: FormProps) => {
       }
     } else {
       //create
-      const { data, error } = await asyncPost(FoodMenuUrl.post, payload);
+      // const { data, error } = await asyncPost(FoodMenuUrl.post, payload);
+      const { data, error } = await asyncPost(FoodMenuUrl.post, form);
       if (data && !error) {
         alert("saved success");
         router.push("/food");
@@ -146,7 +150,7 @@ const Form = ({ editData }: FormProps) => {
               placeholder="Enter Price"
               {...register("price", { required: true })}
               className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
-              type="text"
+              type="number"
             />
           </div>
           {errors?.price && (
@@ -166,7 +170,7 @@ const Form = ({ editData }: FormProps) => {
               type="file"
             />
           </div>
-          {errors?.price && (
+          {errors?.photo && (
             <small className="w-full text-red-600 flex justify-center right-0 top-0">
               Please upload photo
             </small>
