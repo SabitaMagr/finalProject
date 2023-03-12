@@ -13,8 +13,8 @@ interface FormProps {
 export interface FoodMenu {
   id: number;
   name: string;
-  price: string;
-  photo: string;
+  price: number;
+  photo: File[];
   status: string;
   categoryType: string;
 }
@@ -32,15 +32,13 @@ const Form = ({ editData }: FormProps) => {
   //function that is call after submit
   const saveFoodMenu = async (value: FoodMenu) => {
     //api call
-    const payload = {
-      ...value,
-    };
-
-
-    const form = new FormData();
-    form.append('name', value.name)
-    form.append('photo', value.photo)
-    form.append('name', value.name)
+    console.log(value)
+    const payload = new FormData();
+    payload.append('name', value.name)
+    payload.append('photo', value.photo[0])
+    payload.append('price', value.price.toString())
+    payload.append('categoryType', value.categoryType)
+    payload.append('status', value.status)
     if (editData && editData?.id) {
       //update
       const { data, error } = await asyncPut(
@@ -53,10 +51,12 @@ const Form = ({ editData }: FormProps) => {
       }
     } else {
       //create
-      const { data, error } = await asyncPost(FoodMenuUrl.post, payload);
+      const { data, error } = await asyncPost(FoodMenuUrl.post, payload, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
       if (data && !error) {
         alert("saved success");
-        router.push("/food");
+        // router.push("/food");
       }
     }
   };
@@ -146,7 +146,7 @@ const Form = ({ editData }: FormProps) => {
               placeholder="Enter Price"
               {...register("price", { required: true })}
               className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
-              type="text"
+              type="number"
             />
           </div>
           {errors?.price && (
@@ -166,7 +166,7 @@ const Form = ({ editData }: FormProps) => {
               type="file"
             />
           </div>
-          {errors?.price && (
+          {errors?.photo && (
             <small className="w-full text-red-600 flex justify-center right-0 top-0">
               Please upload photo
             </small>

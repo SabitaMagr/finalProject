@@ -4,6 +4,8 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FoodMenu } from "./Form";
+import { MdAutoDelete } from "react-icons/md";
+import { FaEdit, FaTrash } from "react-icons/fa"
 
 const Table = () => {
   const [FoodList, setFoodList] = useState<FoodMenu[]>([]);
@@ -83,6 +85,8 @@ const Table = () => {
               <th className="p-3">Price</th>
               <th className="p-3">Photo</th>
               <th className="p-3">Status</th>
+              <th className="p-3">Action</th>
+
             </tr>
           </thead>
           <tbody className="">
@@ -97,16 +101,16 @@ const Table = () => {
                     <td className="p-3">{data.photo}</td>
                     <td className="p-3">{data.status}</td>
                     <td className="p-3 flex gap-2 justify-center">
-                      <Link href={`/FoodMenu/${data.id}`}>
-                        <button className="outline-none bg-green-600  px-2 py-0.5 rounded-md text-sm  text-white ">
-                          edit
-                        </button>
+                      <Link href={`/food/${data.id}`}>
+                        <span className="outline-none   px-2 py-0.5 rounded-md text-sm  text-green-600 ">
+                          <FaEdit size={25} />
+                        </span>
                       </Link>
                       <button
                         onClick={() => deleteFoodMenu(data.id)}
-                        className="outline-none bg-red-600  px-2 py-0.5 rounded-md text-sm  text-white "
+                        className="outline-none px-2 py-0.5 rounded-md text-sm text-red-600 "
                       >
-                        dlt
+                        <FaTrash size={23} />
                       </button>
                     </td>
                   </tr>

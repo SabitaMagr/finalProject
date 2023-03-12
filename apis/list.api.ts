@@ -26,10 +26,10 @@ const orderList = {
 }
 
 const FoodMenu = {
-    get: '/foodMenu',
-    post: '/foodMenu',
-    put: '/foodMenu',
-    delete: '/foodMenu',
+    get: '/food',
+    post: '/food',
+    put: '/food',
+    delete: '/food',
 }
 
 export {
