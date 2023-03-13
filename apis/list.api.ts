@@ -28,13 +28,21 @@ const orderList = {
 const FoodMenu = {
     get: '/food',
     post: '/food',
-    put: '/food',
-    delete: '/food',
+    put: '/food/',
+    delete: '/food/',
+}
+
+const contact = {
+    get: '/contact',
+    post: '/contact',
+    put: '/contact/',
+    delete: '/contact/',
 }
 
 export {
     FoodMenu as FoodMenuUrl,
     user as userUrl,
     orderList as orderUrl,
-    foodCategory as foodCategoryUrl
+    foodCategory as foodCategoryUrl,
+    contact as contactUrl
 }
