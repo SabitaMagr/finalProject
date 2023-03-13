@@ -11,7 +11,7 @@ interface Props {
 const Container = ({ children, breadCrumb }: Props) => {
   return (
     <div className=''>
-      <div className='p-3 bg-white '>
+      <div className='p-3 py-5 bg-white '>
         <span className='flex gap-2 text-gray-700'>
           {breadCrumb?.map((data, index) => {
             return (

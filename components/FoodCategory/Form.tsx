@@ -56,54 +56,60 @@ const Form = ({ editData }: FormProps) => {
     }
   }, [editData]);
   return (
-    <div className="flex flex-col bg-white mx-auto p-16 justify-center  w-[60%] h-[100%]">
-      <h1 className=" flex justify-center text-2xl pb-5 font-bold">Food Category</h1> <br />
+    <div className="flex flex-col bg-white mx-auto p-8 justify-center  w-[60%] h-[100%]">
+      <h1 className=" flex justify-center text-xl pb-5 font-bold">Food Category</h1> <br />
       {JSON.stringify(editData)}
       <form
         onSubmit={handleSubmit(savefoodCategory)}
         action=""
-        className="flex-col flex gap-10"
+        className="flex-col flex gap-8"
       >
         <div className=" relative items-center">
           <div className="flex  justify-center gap-2">
-            <label htmlFor="" className=" text-lg p-2 w-[30%]">
+            <label htmlFor="" className=" text-base p-2 w-[30%]">
               Category Code:
             </label>
-            <input
-              placeholder="Enter Category Code"
-              {...register("categoryCode", { required: true })}
-              className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
-              type="text"
-            />
+            <div>
+              <input
+                placeholder="Enter Category Code"
+                {...register("categoryCode", { required: true })}
+                className="outline-none px-2 text-sm rounded-md  border-gray-400 border py-1"
+                type="text"
+              />
+              {errors?.categoryCode && (
+                <small className="w-full text-red-600 flex  mt-2 right-0 top-0">
+                  Category Code is required
+                </small>
+              )}
+            </div>
           </div>
-          {errors?.categoryCode && (
-            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-              Category Code is required
-            </small>
-          )}
+
         </div>
         <div className=" relative items-center">
           <div className="flex justify-center gap-2">
-            <label htmlFor="" className="text-lg p-2 w-[30%]">
+            <label htmlFor="" className="text-base p-2 w-[30%]">
               Category Name:
             </label>
-            <input
-              placeholder="Enter Category Name"
-              {...register("categoryName", { required: true })}
-              className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
-              type="text"
-            />
+            <div>
+              <input
+                placeholder="Enter Category Name"
+                {...register("categoryName", { required: true })}
+                className="outline-none px-2 text-sm rounded-md border-gray-400 border py-1.5"
+                type="text"
+              />
+              {errors?.categoryName && (
+                <small className=" text-red-600 flex mt-2 right-0 top-0">
+                  Category Name is required
+                </small>
+              )}
+            </div>
           </div>
-          {errors?.categoryName && (
-            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-              Category Name is required
-            </small>
-          )}
+
         </div>
-        <div className="flex justify-center pt-8">
+        <div className="flex justify-center pt-3">
           <button
             type="submit"
-            className="bg-purple-700  text-white px-8 py-2 rounded-md"
+            className="bg-purple-700 hover:bg-purple-800  text-white px-6 py-1.5 rounded-md"
           >
             {editData ? "Update" : "Save"}
           </button>

@@ -84,97 +84,110 @@ const Form = ({ editData }: FormProps) => {
     }
   }, [editData]);
   return (
-    <div className="flex flex-col bg-white mx-auto py-5 justify-center  w-[60%] h-[100%]">
+    <div className="flex flex-col bg-white mx-auto py-5 justify-center  w-[65%] rounded-md h-[100%]">
       <h1 className=" flex justify-center text-2xl font-bold">Food Menu</h1> <br />
       <form
         onSubmit={handleSubmit(saveFoodMenu)}
         action=""
-        className="flex-col flex gap-6"
+        className="flex-col flex gap-5 px-10"
       >
         <div className=" relative items-center">
           <div className="flex  justify-center gap-2">
-            <label htmlFor="" className=" text-lg p-2 w-[30%]">
+            <label htmlFor="" className=" text-base p-2 w-[30%]">
               Name:
             </label>
-            <input
-              placeholder="Enter Item"
-              {...register("name", { required: true })}
-              className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
-              type="text"
-            />
+            <div className="w-[70%]">
+              <input
+                placeholder="Enter Item"
+                {...register("name", { required: true })}
+                className={`outline-none px-2 rounded-sm ${errors?.name ? 'border-red-500' : 'border-gray-400'}  w-full border py-1.5 text-sm`}
+                type="text"
+              />
+              {errors?.name && (
+                <small className="w-full text-red-600 flex  right-0 top-0">
+                  Food Name is required
+                </small>
+              )}
+            </div>
           </div>
-          {errors?.name && (
-            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-              Food Name is required
-            </small>
-          )}
+
         </div>
         <div className=" relative items-center">
           <div className="flex  justify-center gap-2">
-            <label htmlFor="" className=" text-lg p-2 w-[30%]">
+            <label htmlFor="" className=" text-base p-2 w-[30%]">
               Food Category:
             </label>
-            <select {...register("categoryType", {
-              validate: (value) => value != "null",
-            })}
-              className="px-2 bg-inherit outline-none  rounded-md w-[30%] border-gray-400 border py-1.5"
-            >
-              <option value="null">Select</option>
-              {
-                foodCategoryList?.length > 0 ? (
-                  foodCategoryList?.map((data, i) => {
-                    return (
-                      <option key={i} value={data.id}>{data.categoryName}</option>
-                    )
-                  })
-                ) : ""
-              }
-            </select>
+            <div className="w-[70%]">
+              <select {...register("categoryType", {
+                validate: (value) => value != "null",
+              })}
+                className={`px-2 w-full  bg-inherit outline-none  rounded-sm text-sm  ${errors?.categoryType ? 'border-red-500' : 'border-gray-400'} border py-1.5`}
+              >
+                <option value="null">Select</option>
+                {
+                  foodCategoryList?.length > 0 ? (
+                    foodCategoryList?.map((data, i) => {
+                      return (
+                        <option key={i} value={data.id}>{data.categoryName}</option>
+                      )
+                    })
+                  ) : ""
+                }
+              </select>
+              {errors?.categoryType && (
+                <small className="w-full text-red-600 flex  right-0 top-0">
+                  Select Food Category
+                </small>
+              )}
+            </div>
           </div>
-          {errors?.categoryType && (
-            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-              Select Food Category
-            </small>
-          )}
+
         </div>
         <div className=" relative items-center">
           <div className="flex justify-center gap-2">
-            <label htmlFor="" className="text-lg p-2 w-[30%]">
+            <label htmlFor="" className="text-base p-2 w-[30%]">
               Price:
             </label>
-            <input
-              placeholder="Enter Price"
-              {...register("price", { required: true })}
-              className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
-              type="number"
-            />
+            <div className="w-[70%]">
+              <input
+                placeholder="Enter Price"
+                {...register("price", { required: true })}
+                className={`outline-none px-2 w-full rounded-sm text-sm ${errors?.price ? 'border-red-500' : 'border-gray-400'} border py-1.5`}
+                type="number"
+              />
+              {errors?.price && (
+                <small className="w-full text-red-600 flex  right-0 top-0">
+                  Price is required
+                </small>
+              )}
+            </div>
           </div>
-          {errors?.price && (
-            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-              Price is required
-            </small>
-          )}
+
         </div>
         <div className=" relative items-center">
           <div className="flex justify-center gap-2">
-            <label htmlFor="" className="text-lg p-2 w-[30%]">
+            <label htmlFor="" className="text-base p-2 w-[30%]">
               Upload photo:
             </label>
-            <input
-              {...register("photo", { required: true })}
-              className="outline-none px-2 rounded-md w-[30%] border-gray-400 border py-1.5"
-              type="file"
-            />
+            <div className="w-[70%]">
+              <input
+                {...register("photo", { required: true })}
+                className={`outline-none px-2 text-sm rounded-sm w-full ${errors?.photo ? 'border-red-500' : 'border-gray-400'}  border py-1.5`}
+                type="file"
+              />
+              {errors?.photo && (
+                <small className="w-full text-red-600 flex  right-0 top-0">
+                  Please upload photo
+                </small>
+              )}
+            </div>
+
           </div>
-          {errors?.photo && (
-            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-              Please upload photo
-            </small>
-          )}
+
         </div>
         <div className=" relative items-center">
           <div className="flex justify-center gap-2">
-            <label htmlFor="" className="text-lg p-2 w-[30%]">
+            <label htmlFor="" className="text-base p-2 w-[30%]">
               Status:
             </label>
             {/* <input
@@ -182,28 +195,31 @@ const Form = ({ editData }: FormProps) => {
               className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
               type="text"
             /> */}
-            <select {...register("status", {
-              validate: (value) => value != "null",
-            })}
-              className="px-2 bg-inherit outline-none  rounded-md w-[30%] border-gray-400 border py-1.5"
-            >
-              <option value="null">Select</option>
-              {foodStatusData.map((data, i) => {
-                return (
-                  <>
-                    <option key={i} value={data?.value}>{data?.status}</option>
-                  </>)
-              })
+            <div className="w-[70%]">
+              <select {...register("status", {
+                validate: (value) => value != "null",
+              })}
+                className={`px-2 bg-inherit outline-none  text-sm  rounded-sm w-[100%] ${errors?.status ? 'border-red-500' : 'border-gray-400'} border py-1.5`}
+              >
+                <option value="null">Select</option>
+                {foodStatusData.map((data, i) => {
+                  return (
+                    <>
+                      <option key={i} value={data?.value}>{data?.status}</option>
+                    </>)
+                })
 
-              }
+                }
 
-            </select>
+              </select>
+              {errors?.status && (
+                <small className="w-full text-red-600 flex  right-0 top-0">
+                  Please select status
+                </small>
+              )}
+            </div>
           </div>
-          {errors?.status && (
-            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-              Please select status
-            </small>
-          )}
+
         </div>
         <div className="flex justify-center pt-5">
           <button
