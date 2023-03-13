@@ -1,6 +1,4 @@
-import { spawn } from 'child_process';
 import Link from 'next/link';
-import { title } from 'process';
 import React from 'react'
 
 interface Props {
@@ -12,13 +10,13 @@ interface Props {
 }
 const Container = ({ children, breadCrumb }: Props) => {
   return (
-    <div>
-      <div className='p-3 '>
-        <span className='flex gap-2'>
+    <div className=''>
+      <div className='p-3 bg-white '>
+        <span className='flex gap-2 text-gray-700'>
           {breadCrumb?.map((data, index) => {
             return (
               <Link key={index} href={data?.link as string} className="flex gap-3 text-sm">
-                <span>{data?.title}</span>
+                <span className='text-gray-500'>{data?.title}</span>
                 {index + 1 != breadCrumb.length && <span>{">"}</span>}
               </Link>
             );

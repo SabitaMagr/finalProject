@@ -1,4 +1,3 @@
-import Logo from '@/components/Form/Logo'
 import sideBarData from '@/data/sideBarData'
 import Link from 'next/link'
 import React from 'react'

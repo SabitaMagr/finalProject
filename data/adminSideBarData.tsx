@@ -18,7 +18,7 @@ export interface SideBarInterface {
 const adminSideBarData: SideBarInterface[] = [
     {
         title: 'Food Menu',
-        icon: <BiFoodMenu size={23} />,
+        icon: <BiFoodMenu size={20} />,
         children: [{
             title: 'Food Category',
             link: '/foodCategory',
@@ -32,12 +32,12 @@ const adminSideBarData: SideBarInterface[] = [
     },
     {
         title: 'Orders',
-        icon: <GoTasklist size={23} />,
+        icon: <GoTasklist size={20} />,
         link: '/order'
     },
     {
         title: 'Users',
-        icon: <HiOutlineUserGroup size={23} />,
+        icon: <HiOutlineUserGroup size={20} />,
         link: '/user'
     }
 
