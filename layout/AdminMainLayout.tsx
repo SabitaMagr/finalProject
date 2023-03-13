@@ -18,7 +18,7 @@ const AdminMainLayout = ({ title, children }: Props) => {
                 <title>{title || "demo"}</title>
                 <link rel="stylesheet" href="" />
             </Head>
-            <main className='w-full'>
+            <main className='w-full !bg-slate-100'>
                 <AdminSideBar toggle={toggle} />
                 <div className={`${!toggle ? "md:ml-[11rem] lg:ml-[12.5rem] xl:ml-[13.5rem] 2xl:ml-[21rem]" : "ml-[4rem]"}`}>
                     <Navbar setToggle={setToggle} toggle={toggle} />

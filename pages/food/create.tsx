@@ -1,9 +1,18 @@
 import Create from "@/components/Food/Create";
-import Form from "@/components/FoodCategory/Form";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import React from "react";
 
 const create = () => {
-  return <Create/>;
+  return <Create />;
 };
 
 export default create;
+
+export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
+
+  return {
+    props: {
+      type: 'admin'
+    }
+  }
+}

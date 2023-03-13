@@ -23,11 +23,9 @@ const breadCrumb: { title: string; link: string }[] = [
 
 const Create = () => {
   return (
-    <AdminMainLayout>
     <Container breadCrumb={breadCrumb}>
-        <Form/>
+      <Form />
     </Container>
-</AdminMainLayout>
   );
 };
 

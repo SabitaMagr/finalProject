@@ -95,11 +95,13 @@ const Table = () => {
                 return (
                   <tr key={i} className="hover:bg-gray-200  p-3 text-center">
                     <td className="p-3 ">{i + 1}</td>
-                    <td className="p-3">{data.name}</td>
-                    <td className="p-3">{data.categoryType}</td>
-                    <td className="p-3">{data.price}</td>
-                    <td className="p-3">{data.photo}</td>
-                    <td className="p-3">{data.status}</td>
+                    <td className="p-3">{data?.name}</td>
+                    <td className="p-3">{data?.categoryType?.categoryName}</td>
+                    <td className="p-3">{data?.price}</td>
+                    <td className="p-3">
+                      <img src={`http://localhost:5000/food/${data?.photo}`} height={50} width={50} alt="" />
+                    </td>
+                    <td className="p-3">{data?.status}</td>
                     <td className="p-3 flex gap-2 justify-center">
                       <Link href={`/food/${data.id}`}>
                         <span className="outline-none   px-2 py-0.5 rounded-md text-sm  text-green-600 ">
@@ -125,17 +127,6 @@ const Table = () => {
             )}
           </tbody>
         </table>
-      </div>
-      <div className="flex justify-end gap-2 absolute bottom-0 right-0">
-        <button className="p-1 px-2 border border-gray-700  rounded-md">
-          1
-        </button>
-        <button className="p-1 px-2 border border-gray-700  rounded-md">
-          2
-        </button>
-        <button className="p-1 px-2 border border-gray-700  rounded-md">
-          3
-        </button>
       </div>
     </div>
   );

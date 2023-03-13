@@ -1,7 +1,7 @@
 import { foodCategoryUrl, FoodMenuUrl } from "@/apis/list.api";
 import { asyncGet, asyncPost, asyncPut } from "@/apis/rest.api";
 import foodStatusData from "@/data/foodStatus";
-import axios from "axios";
+import { message } from 'antd'
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -14,9 +14,9 @@ export interface FoodMenu {
   id: number;
   name: string;
   price: number;
-  photo: File[];
+  photo: File[] | any;
   status: string;
-  categoryType: string;
+  categoryType: string | any;
 }
 
 
@@ -46,7 +46,7 @@ const Form = ({ editData }: FormProps) => {
         payload
       );
       if (data && !error) {
-        alert("update success");
+        message.success('successfully updated food')
         router.push("/food");
       }
     } else {
@@ -55,8 +55,8 @@ const Form = ({ editData }: FormProps) => {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       if (data && !error) {
-        alert("saved success");
-        // router.push("/food");
+        message.success('successfully added food')
+        router.push("/food");
       }
     }
   };
