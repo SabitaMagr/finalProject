@@ -22,13 +22,13 @@ const breadCrumb: { title: string; link: string }[] = [
 ];
 const Update = () => {
   const router = useRouter();
-  const [foodCategory, setFoodCategory] = useState<FoodMenu>();
+  const [foodList, setFoodList] = useState<FoodMenu>();
 
   const fetchFoodMenu = async () => {
     const id = router.query.id; //id from url
     const { data, error } = await asyncGet(FoodMenuUrl.get + "/" + id);
     if (data && !error) {
-        fetchFoodMenu();
+      setFoodList(data?.data);
     }
   };
 
@@ -39,7 +39,7 @@ const Update = () => {
   return (
     <AdminMainLayout>
       <Container breadCrumb={breadCrumb}>
-        <Form editData={foodCategory} />
+        <Form editData={foodList} />
       </Container>
     </AdminMainLayout>
   );

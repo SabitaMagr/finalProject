@@ -9,10 +9,10 @@ const SideBar = () => {
         >
             <div className='absolute inset-0 bg-black bg-opacity-60 ' />
             <div className='fixed flex z-[999999] left-0 right-0 bg-white  bg-opacity-60'>
-                <div className='w-[3%] ml-7 bg-white rounded-full m-1'>
+                <div className='w-[3%] ml-7 bg-white rounded-full '>
                     <FiPhoneCall size={25} className='m-2' />
                 </div>
-                <div className='flex flex-col  p-1'>
+                <div className='flex flex-col  p-2'>
                     <span className='text-sm'>Order Now !</span>
                     <span className=' font-semibold'>012 345 678</span>
                 </div>

@@ -67,7 +67,7 @@ const Table = () => {
           />
         </div>
         <Link href={"/foodCategory/create"}>
-          <span className="bg-purple-500 text-white hover:bg-purple-800 rounded-md px-3 py-2">
+          <span className="bg-purple-500 flex justify-center text-white hover:bg-purple-800 rounded-md px-3 py-2">
             Add Food Category
           </span>
         </Link>

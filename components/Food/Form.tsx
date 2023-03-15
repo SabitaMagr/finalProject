@@ -86,6 +86,7 @@ const Form = ({ editData }: FormProps) => {
   return (
     <div className="flex flex-col bg-white mx-auto py-5 justify-center  w-[65%] rounded-md h-[100%]">
       <h1 className=" flex justify-center text-2xl font-bold">Food Menu</h1> <br />
+      {/* {JSON.stringify(editData)} */}
       <form
         onSubmit={handleSubmit(saveFoodMenu)}
         action=""
