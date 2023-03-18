@@ -1,3 +1,4 @@
+import Footer from '@/components/Front Page/Footer';
 import Head from 'next/head';
 import React, { useState } from 'react'
 import FrontenedNavaBar from './FrontenedNavaBar';
@@ -20,7 +21,7 @@ const Mainlayout = ({ title, children }: Props) => {
         <div className='pt-16'>
           {children}
         </div>
-
+        <Footer />
       </main>
     </>
   )
