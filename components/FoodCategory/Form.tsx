@@ -56,8 +56,8 @@ const Form = ({ editData }: FormProps) => {
     }
   }, [editData]);
   return (
-    <div className="flex flex-col bg-white mx-auto p-8 justify-center  w-[60%] h-[100%]">
-      <h1 className=" flex justify-center text-xl pb-5 font-bold">Food Category</h1> <br />
+    <div className="flex flex-col bg-white mx-auto mt-8 pb-8 justify-center  w-[60%] h-[100%]">
+      <h1 className=" flex justify-center text-xl bg-[#078df7] p-4 font-bold">Food Category</h1> <br />
       {/* {JSON.stringify(editData)} */}
       <form
         onSubmit={handleSubmit(savefoodCategory)}
@@ -109,7 +109,7 @@ const Form = ({ editData }: FormProps) => {
         <div className="flex justify-center pt-3">
           <button
             type="submit"
-            className="bg-purple-700 hover:bg-purple-800  text-white px-6 py-1.5 rounded-md"
+            className="bg-[#2497f5] hover:bg-[#0585ee] text-white px-6 py-2 rounded-md"
           >
             {editData ? "Update" : "Save"}
           </button>

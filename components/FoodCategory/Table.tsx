@@ -67,7 +67,7 @@ const Table = () => {
           />
         </div>
         <Link href={"/foodCategory/create"}>
-          <span className="bg-purple-500 flex justify-center text-white hover:bg-purple-800 rounded-md px-3 py-2">
+          <span className="bg-[#279bfa] flex justify-center text-white hover:bg-[#0383ec] font-semibold rounded-md px-3 py-2">
             Add Food Category
           </span>
         </Link>
@@ -75,7 +75,7 @@ const Table = () => {
       <div className="bg-white p-2">
         {/* {JSON.stringify(FoodList)} */}
         <table className="w-full mt-3">
-          <thead className=" text-white bg-purple-600  ">
+          <thead className=" text-white bg-[#279bfa]  ">
             <tr className="">
               <th className="p-3">SN</th>
               <th className="p-3">Category Code</th>

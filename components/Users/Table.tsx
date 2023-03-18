@@ -65,7 +65,7 @@ const Table = () => {
             </div>
             <div className='p-2'>
                 <table className='w-full mt-3'>
-                    <thead className='text-white bg-purple-600'>
+                    <thead className='text-white bg-[#319bf1]'>
                         <tr>
                             <th className='p-3'>S.N</th>
                             <th className='p-3'>User Name</th>

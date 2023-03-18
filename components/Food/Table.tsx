@@ -70,7 +70,7 @@ const Table = () => {
           />
         </div>
         <Link href={"/food/create"}>
-          <span className="bg-purple-500 flex justify-center text-white hover:bg-purple-800 rounded-md p-3 ">
+          <span className="bg-[#279bfa] flex justify-center font-semibold text-white hover:bg-[#068dfc] rounded-md p-3 ">
             Add Food
           </span>
         </Link>
@@ -78,7 +78,7 @@ const Table = () => {
       <div className="bg-white p-2">
         {/* {JSON.stringify(FoodList)} */}
         <table className="w-full ">
-          <thead className=" text-white bg-purple-600  ">
+          <thead className=" text-white bg-[#279bfa] ">
             <tr className="">
               <th className="p-3">SN</th>
               <th className="p-3">Food Name</th>

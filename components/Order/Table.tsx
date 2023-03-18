@@ -45,12 +45,12 @@ const Table = () => {
                 <div>
                     <input type="text"
                         onChange={filterSearch}
-                        className="border border-gray-400 rounded-md outline-none p-" />
+                        className="border border-gray-400 rounded-md outline-none p-2" />
                 </div>
             </div>
             <div className='p-2'>
                 <table className='w-full mt-3'>
-                    <thead className='text-white bg-purple-600'>
+                    <thead className='text-white bg-[#279bfa]'>
                         <tr>
                             <th className='p-3'>Order No:</th>
                             <th className='p-3'>Items</th>

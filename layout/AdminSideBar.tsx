@@ -14,7 +14,7 @@ const AdminSideBar = ({ toggle }: Props) => {
     return (
         <>
             <div className={`min-h-screen text-white z-50
-    ${toggle ? "w-[5%] pt-16" : "w-[16%]"} bg-purple-600 fixed inset-0`}>
+    ${toggle ? "w-[5%] pt-16" : "w-[16%]"} bg-[#2798f2] fixed inset-0`}>
                 <div className='flex justify-center'>
                     {
                         !toggle && (
@@ -30,8 +30,8 @@ const AdminSideBar = ({ toggle }: Props) => {
                                         !data?.children ?
                                             <Link key={index} href={data?.link || '#'}>
 
-                                                <li className={`p-2 px-3 ${router.asPath == data.link ? "bg-purple-700" : ""}
-                                                 hover:bg-purple-700 flex gap-4 items-center `}>
+                                                <li className={`p-2 font-bold px-3 ${router.asPath == data.link ? "bg-[#078df7]" : ""}
+                                                 hover:bg-[#078df7] flex gap-4 items-center `}>
                                                     <span>{data?.icon}</span>
                                                     {!toggle &&
                                                         <span className='text-sm'>{data.title}
@@ -63,7 +63,7 @@ const Children = ({ data, toggle }: { data: SideBarInterface, toggle: boolean })
     const router = useRouter();
     return (
         <li className=' text-sm'>
-            <span onClick={() => setState(s => !s)} className='hover:bg-purple-700 p-2 px-3 flex justify-between items-center'>
+            <span onClick={() => setState(s => !s)} className='hover:bg-[#078df7] font-bold p-2 px-3 flex justify-between items-center'>
                 <span className='flex gap-4'>
                     <span>{data?.icon}</span>
                     {!toggle &&
@@ -87,7 +87,7 @@ const Children = ({ data, toggle }: { data: SideBarInterface, toggle: boolean })
                         data?.children?.map((child, i) => {
                             return (
                                 <Link key={i} href={child?.link || '#'}>
-                                    <span className='hover:bg-purple-700 pl-10 py-1 flex items-center gap-3'>
+                                    <span className=' hover:bg-[#0687f0] pl-10 py-1 flex items-center gap-3'>
                                         <span>{child.icon}</span>
                                         <span>{child?.title}</span>
                                     </span></Link>

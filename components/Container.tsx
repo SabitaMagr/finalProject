@@ -16,8 +16,8 @@ const Container = ({ children, breadCrumb }: Props) => {
           {breadCrumb?.map((data, index) => {
             return (
               <Link key={index} href={data?.link as string} className="flex gap-3 text-sm">
-                <span className='text-gray-500'>{data?.title}</span>
-                {index + 1 != breadCrumb.length && <span>{">"}</span>}
+                <span className=' text-slate-800 font-semibold '>{data?.title}</span>
+                {index + 1 != breadCrumb.length && <span className=' font-semibold'>{">"}</span>}
               </Link>
             );
           })}
