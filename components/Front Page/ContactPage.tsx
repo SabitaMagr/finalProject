@@ -41,22 +41,22 @@ const ContactPage = () => {
         }
     }
     return (
-        <div className=' relative  z-90 !bg-no-repeat !bg-cover !bg-black'
+        <div className=' relative  min-h-[90vh] z-90 !bg-no-repeat !bg-cover !bg-black'
             style={{ background: 'url(/images/contact.jpg)' }}
         >
             <div className='absolute inset-0 bg-black  bg-opacity-75 ' />
-            <span className='flex   text-white font-extrabold text-2xl'>Contact Us</span>
 
-            <div className='flex'>
+            <div className='flex  pt-5'>
                 <form
                     onSubmit={handleSubmit(saveContactInfo)}
                     action=""
-                    className="flex-col flex gap-4 text-white px-14 w-[50%] relative "
+                    className="flex-col flex gap-4 text-black px-14 w-[50%] relative "
                 >
+                    <span className='flex  justify-center  text-white font-extrabold text-2xl'>Contact Us</span>
 
                     <div className=" relative items-center  ">
                         <div className="flex   gap-2">
-                            <label htmlFor="" className=" text-base p-2 w-[28%]">
+                            <label htmlFor="" className=" text-white text-base p-2 w-[28%]">
                                 First Name:
                             </label>
                             <input
@@ -68,7 +68,7 @@ const ContactPage = () => {
                     </div>
                     <div className=" relative items-center">
                         <div className="flex  gap-2">
-                            <label htmlFor="" className=" text-base p-2 w-[28%]">
+                            <label htmlFor="" className=" text-white text-base p-2 w-[28%]">
                                 Last Name:
                             </label>
                             <input
@@ -80,7 +80,7 @@ const ContactPage = () => {
                     </div>
                     <div className=" relative items-center">
                         <div className="flex gap-2">
-                            <label htmlFor="" className="text-base p-2 w-[28%]">
+                            <label htmlFor="" className=" text-white text-base p-2 w-[28%]">
                                 Email:
                             </label>
                             <input
@@ -92,7 +92,7 @@ const ContactPage = () => {
                     </div>
                     <div className=" relative items-center">
                         <div className="flex gap-2">
-                            <label htmlFor="" className="text-base p-2 w-[28%]">
+                            <label htmlFor="" className="text-white text-base p-2 w-[28%]">
                                 Company Name:
                             </label>
                             <input
@@ -104,7 +104,7 @@ const ContactPage = () => {
                     </div>
                     <div className=" relative items-center">
                         <div className="flex  gap-2">
-                            <label htmlFor="" className="text-base p-2 w-[28%]">
+                            <label htmlFor="" className=" text-white text-base p-2 w-[28%]">
                                 Phone Number:
                             </label>
                             <input
@@ -117,7 +117,7 @@ const ContactPage = () => {
                     </div>
                     <div className=" relative items-center">
                         <div className="flex  gap-2">
-                            <label htmlFor="" className="text-base p-2 w-[28%]">
+                            <label htmlFor="" className=" text-white text-base p-2 w-[28%]">
                                 Message:
                             </label>
                             <textarea name="" id="" cols="30" rows="5" className="outline-none px-1.5  w-[57%] rounded-md border-gray-400 border py-1.5">

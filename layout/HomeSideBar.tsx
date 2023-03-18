@@ -24,7 +24,7 @@ const HomeSideBar = () => {
 
     return (
         <>
-            <div className={`  text-black font-bold flex min-h-[60vh] inset-0 bg-gray-600 w-[15%] pt-[5rem] `}>
+            <div className={`  text-black font-bold flex min-h-[10vh] inset-0 bg-slate-200 w-[15%]`}>
                 <div className='mt-2'>
                     <ul className=''>
                         {foodCategoryList?.length > 0 ? (
@@ -34,8 +34,8 @@ const HomeSideBar = () => {
                                         {
                                             <Link key={i} href={data?.link || '#'}>
 
-                                                <li className={`p-2 px-3 ${router.asPath == data.link ? "bg-purple-700" : ""}
-                                             hover:bg-purple-700 flex gap-4 items-center `}>
+                                                <li className={` pl-6 ${router.asPath == data.link ? "bg-purple-700" : ""}
+                                             hover:border-b-3 hover:border-white flex py-2 `}>
                                                     <span className='text-sm'>{data.categoryName}
 
                                                     </span>
