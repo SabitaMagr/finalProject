@@ -18,7 +18,6 @@ export interface contact {
 }
 
 const ContactPage = () => {
-
     const {
         register,
         handleSubmit,
@@ -40,152 +39,138 @@ const ContactPage = () => {
             alert("saved success");
             router.push("/home");
         }
-        return (
-            <div>
+    }
+    return (
+        <div className=' relative  z-90 !bg-no-repeat !bg-cover !bg-black'
+            style={{ background: 'url(/images/contact.jpg)' }}
+        >
+            <div className='absolute inset-0 bg-black  bg-opacity-75 ' />
+            <span className='flex   text-white font-extrabold text-2xl'>Contact Us</span>
+
+            <div className='flex'>
                 <form
                     onSubmit={handleSubmit(saveContactInfo)}
                     action=""
-                    className="flex-col flex gap-6"
+                    className="flex-col flex gap-4 text-white px-14 w-[50%] relative "
                 >
-                    <span>Contact Us</span>
-                    <div className=" relative items-center">
-                        <div className="flex  justify-center gap-2">
-                            <label htmlFor="" className=" text-lg p-2 w-[30%]">
+
+                    <div className=" relative items-center  ">
+                        <div className="flex   gap-2">
+                            <label htmlFor="" className=" text-base p-2 w-[28%]">
                                 First Name:
                             </label>
                             <input
-                                placeholder="Enter Item"
                                 {...register("firstName", { required: true })}
-                                className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
+                                className="outline-none px-2 rounded-md w-[57%] border-gray-400 border py-1.5"
                                 type="text"
                             />
                         </div>
-                        {errors?.firstName && (
-                            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-                                First Name is required
-                            </small>
-                        )}
                     </div>
                     <div className=" relative items-center">
-                        <div className="flex  justify-center gap-2">
-                            <label htmlFor="" className=" text-lg p-2 w-[30%]">
+                        <div className="flex  gap-2">
+                            <label htmlFor="" className=" text-base p-2 w-[28%]">
                                 Last Name:
                             </label>
                             <input
-                                placeholder="Enter Item"
                                 {...register("lastName", { required: true })}
-                                className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
+                                className="outline-none px-1.5 rounded-md w-[57%] border-gray-400 border py-1.5"
                                 type="text"
                             />
                         </div>
-                        {errors?.lastName && (
-                            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-                                Last Name is required
-                            </small>
-                        )}
                     </div>
                     <div className=" relative items-center">
-                        <div className="flex justify-center gap-2">
-                            <label htmlFor="" className="text-lg p-2 w-[30%]">
-                                Price:
+                        <div className="flex gap-2">
+                            <label htmlFor="" className="text-base p-2 w-[28%]">
+                                Email:
                             </label>
                             <input
-                                placeholder="Enter Price"
                                 {...register("email", { required: true })}
-                                className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
-                                type="number"
+                                className="outline-none px-1.5  w-[57%] rounded-md border-gray-400 border py-1.5"
+                                type="text"
                             />
                         </div>
-                        {errors?.email && (
-                            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-                                Price is required
-                            </small>
-                        )}
                     </div>
                     <div className=" relative items-center">
-                        <div className="flex justify-center gap-2">
-                            <label htmlFor="" className="text-lg p-2 w-[30%]">
-                                Company Name:                        </label>
+                        <div className="flex gap-2">
+                            <label htmlFor="" className="text-base p-2 w-[28%]">
+                                Company Name:
+                            </label>
                             <input
                                 {...register("companyName", { required: true })}
-                                className="outline-none px-2 rounded-md w-[30%] border-gray-400 border py-1.5"
-                                type="file"
+                                className="outline-none px-1.5 w-[57%] rounded-md border-gray-400 border py-1.5"
+                                type="text"
                             />
                         </div>
                     </div>
                     <div className=" relative items-center">
-                        <div className="flex justify-center gap-2">
-                            <label htmlFor="" className="text-lg p-2 w-[30%]">
+                        <div className="flex  gap-2">
+                            <label htmlFor="" className="text-base p-2 w-[28%]">
                                 Phone Number:
                             </label>
                             <input
                                 {...register("phoneNumber", { required: true })}
-                                className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
+                                className="outline-none px-1.5 w-[57%] rounded-md border-gray-400 border py-1.5"
                                 type="text"
                             />
                         </div>
-                        {errors?.phoneNumber && (
-                            <small className="w-full text-red-600 flex justify-center right-0 top-0">
-                                Phone Number is Required
-                            </small>
-                        )}
+
                     </div>
                     <div className=" relative items-center">
-                        <div className="flex justify-center gap-2">
-                            <label htmlFor="" className="text-lg p-2 w-[30%]">
+                        <div className="flex  gap-2">
+                            <label htmlFor="" className="text-base p-2 w-[28%]">
                                 Message:
                             </label>
-                            <input
-                                {...register("message")
-                                //  { required: true })
-                                }
-                                className="outline-none px-2 rounded-md border-gray-400 border py-1.5"
-                                type="text"
-                            />
+                            <textarea name="" id="" cols="30" rows="5" className="outline-none px-1.5  w-[57%] rounded-md border-gray-400 border py-1.5">
+
+                            </textarea>
                         </div>
-                        {/* {errors?.message && (
-                        <small className="w-full text-red-600 flex justify-center right-0 top-0">
-                            Phone Number is Required
-                        </small>
-                    )} */}
                     </div>
-                    <div className="flex justify-center pt-5">
+                    <div className="flex  py-5 px-40">
                         <button
                             type="submit"
-                            className="bg-purple-700  text-white px-8 py-2 rounded-md"
-                        >
+                            className="bg-black border-2 hover:bg-white hover:text-black  font-bold border-white text-white px-8 py-2 rounded-md"
+                        >Submit
                         </button>
                     </div>
                 </form >
-                <div>
-                    <span>Enagage and Experience </span>
-                    <div>
-                        <div>
-                            <span><FiPhoneCall /></span>
-                            <div>
-                                <span className=' rounded-full p-2 bg-white'>Call Us</span>
-                                <span>012 345 678</span>
+                <div className=' relative  px-12 py-7 text-white  w-[50%]'>
+                    <div className=' '>
+                        <span className=' font-extrabold   text-lg'>Engage and Experience </span>
+                        <div className=' py-5'>
+                            <div className=' flex py-3'>
+                                <div className=' border-2 rounded-full  p-2 border-white'>
+                                    <span><FiPhoneCall size={27} /></span>
+                                </div>
+                                <div className=' ml-3 '>
+                                    <span className=' font-semibold block'>Call Us</span>
+                                    <span>012 345 678</span>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <span><AiFillMail /></span>
-                            <div>
-                                <span rounded-full p-2 bg-white>Email Us</span>
-                                <span>cafe@gmail.com</span>
+                            <div className='flex py-3'>
+                                <div className=' border-2 rounded-full  p-2 border-white'>
+                                    <span><AiFillMail size={27} /></span>
+                                </div>
+                                <div className=' ml-3 '>
+                                    <span className=' font-semibold block' >Email Us</span>
+                                    <span className=' font-medium'>cafe@gmail.com</span>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <span><MdLocationOn /></span>
-                            <div>
-                                <span rounded-full p-2 bg-white>Location</span>
-                                <span>cafe@gmail.com</span>
+                            <div className='flex py-3'>
+                                <div className=' border-2 rounded-full  p-2 border-white'>
+                                    <span><MdLocationOn size={27} /></span>
+                                </div>
+                                <div className=' ml-3 '>
+                                    <span className=' font-semibold block'>Location</span>
+                                    <span className=' font-medium'>New Baneshwor,Kathmandu</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default ContactPage

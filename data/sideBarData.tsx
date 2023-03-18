@@ -1,19 +1,20 @@
 import { BiUserCircle } from "react-icons/bi";
+import { FaCartArrowDown } from "react-icons/fa";
 
-interface SideBarInterface{
-    title?:string;
-    link?:string;
-    icon?:React.ReactNode;
+interface SideBarInterface {
+    title?: string;
+    link?: string;
+    icon?: React.ReactNode;
 }
 
-const sideBarData:SideBarInterface[]=[
+const sideBarData: SideBarInterface[] = [
     {
-        title:'Home',
-        link:'/home'
+        title: 'Home',
+        link: '/'
     },
     {
-        title:'Our Menu',
-        link:'/menu'
+        title: 'Our Menu',
+        link: '/menu'
     },
     // {
     //     title:'Gallery',
@@ -24,14 +25,19 @@ const sideBarData:SideBarInterface[]=[
     //     link:'/news'
     // },
     {
-        title:'Contact Us',
-        link:'/contact'
+        title: 'Contact Us',
+        link: '/contact'
     },
     {
-        title:'Login',
-        link:'/login',
-        icon:<BiUserCircle size={27} />
+        title: 'Login',
+        link: '/login',
+        icon: <BiUserCircle size={27} />
     }
+    // ,
+    // {
+    //     icon: <FaCartArrowDown />
+    // }
+
 ]
 
 export default sideBarData;

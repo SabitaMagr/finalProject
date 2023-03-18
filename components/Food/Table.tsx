@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { FoodMenu } from "./Form";
 import { MdAutoDelete } from "react-icons/md";
 import { FaEdit, FaTrash } from "react-icons/fa"
+import foodStatusData from "@/data/foodStatus";
 
 const Table = () => {
   const [FoodList, setFoodList] = useState<FoodMenu[]>([]);
@@ -69,14 +70,14 @@ const Table = () => {
           />
         </div>
         <Link href={"/food/create"}>
-          <span className="bg-purple-500 flex justify-center text-white hover:bg-purple-800 rounded-md p-1.5">
+          <span className="bg-purple-500 flex justify-center text-white hover:bg-purple-800 rounded-md p-3 ">
             Add Food
           </span>
         </Link>
       </div>
       <div className="bg-white p-2">
         {/* {JSON.stringify(FoodList)} */}
-        <table className="w-full mt-3">
+        <table className="w-full ">
           <thead className=" text-white bg-purple-600  ">
             <tr className="">
               <th className="p-3">SN</th>
@@ -93,26 +94,26 @@ const Table = () => {
             {filteredFoodMenuflist?.length > 0 ? (
               filteredFoodMenuflist?.map((data, i) => {
                 return (
-                  <tr key={i} className="hover:bg-gray-200  p-3 text-center">
+                  <tr key={i} className="hover:bg-gray-200  text-center">
                     <td className="p-3 ">{i + 1}</td>
                     <td className="p-3">{data?.name}</td>
                     <td className="p-3">{data?.categoryType?.categoryName}</td>
-                    <td className="p-3">{data?.price}</td>
-                    <td className="p-3">
+                    <td className="p-3 ">{data?.price}</td>
+                    <td className="p-3 flex justify-center items-center ">
                       <img src={`http://localhost:5000/food/${data?.photo}`} height={50} width={50} alt="" />
                     </td>
-                    <td className="p-3">{data?.status}</td>
-                    <td className="p-3 flex gap-2 justify-center">
+                    <td className="p-3">{foodStatusData?.find(f => f.value == data?.status)?.status}</td>
+                    <td className="p-3 flex gap-2 justify-center items-center ">
                       <Link href={`/food/${data.id}`}>
-                        <span className="outline-none   px-2 py-0.5 rounded-md text-sm  text-green-600 ">
-                          <FaEdit size={25} />
+                        <span className="outline-none  rounded-md text-sm  text-green-600 ">
+                          <FaEdit size={23} />
                         </span>
                       </Link>
                       <button
                         onClick={() => deleteFoodMenu(data.id)}
-                        className="outline-none px-2 py-0.5 rounded-md text-sm text-red-600 "
+                        className="outline-none rounded-md text-sm text-red-600 "
                       >
-                        <FaTrash size={23} />
+                        <FaTrash size={21} />
                       </button>
                     </td>
                   </tr>

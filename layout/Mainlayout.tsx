@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React, { useState } from 'react'
+import FrontenedNavaBar from './FrontenedNavaBar';
 import SideBar from './SideBar';
 
 interface Props {
@@ -15,9 +16,11 @@ const Mainlayout = ({ title, children }: Props) => {
         <link rel="stylesheet" href="" />
       </Head>
       <main className='w-full'>
-        <SideBar />
-        {/* <div className={`${!toggle ? "md:ml-[11rem] lg:ml-[14rem] xl:ml-[16rem] 2xl:ml-[21rem]" : "ml-[5rem]"}`}> */}
-        {/* </div> */}
+        <FrontenedNavaBar />
+        <div className='pt-16'>
+          {children}
+        </div>
+
       </main>
     </>
   )

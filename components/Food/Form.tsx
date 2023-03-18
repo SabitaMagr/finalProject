@@ -5,6 +5,7 @@ import { message } from 'antd'
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { ImCross } from "react-icons/im";
 import { FoodCategory } from "../FoodCategory/Form";
 
 interface FormProps {
@@ -15,13 +16,14 @@ export interface FoodMenu {
   name: string;
   price: number;
   photo: File[] | any;
-  status: string;
+  status: number;
   categoryType: string | any;
 }
 
 
 const Form = ({ editData }: FormProps) => {
   const [foodCategoryList, setfoodCategory] = useState<FoodCategory[]>([]);
+  const [toggleBtn, setToggleBtn] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -77,10 +79,10 @@ const Form = ({ editData }: FormProps) => {
     if (editData) {
       setValue("name", editData?.name);
       setValue("price", editData?.price);
-      setValue("photo", editData?.photo);
       setValue("status", editData?.status);
       setValue("categoryType", editData?.categoryType);
       setValue("id", editData?.id);
+      setToggleBtn(editData?.photo)
     }
   }, [editData]);
   return (
@@ -171,11 +173,20 @@ const Form = ({ editData }: FormProps) => {
               Upload photo:
             </label>
             <div className="w-[70%]">
-              <input
-                {...register("photo", { required: true })}
-                className={`outline-none px-2 text-sm rounded-sm w-full ${errors?.photo ? 'border-red-500' : 'border-gray-400'}  border py-1.5`}
-                type="file"
-              />
+              {
+                !toggleBtn ?
+                  <input
+                    {...register("photo", { required: true })}
+                    className={`outline-none px-2 text-sm rounded-sm w-full ${errors?.photo ? 'border-red-500' : 'border-gray-400'}  border py-1.5`}
+                    type="file"
+                  />
+                  :
+                  <div className="relative inline-block ">
+                    <span className="text-red-500 absolute  nepal  top-0" onClick={() => setToggleBtn(toggleBtn => !toggleBtn)}  ><ImCross /></span>
+                    <img src={`http://localhost:5000/food/${editData?.photo}`} height={50} width={50} alt="" />
+                  </div>
+              }
+
               {errors?.photo && (
                 <small className="w-full text-red-600 flex  right-0 top-0">
                   Please upload photo

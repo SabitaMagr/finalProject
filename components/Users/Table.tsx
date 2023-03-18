@@ -1,8 +1,8 @@
 import { userUrl } from '@/apis/list.api';
-import { asyncGet } from '@/apis/rest.api';
+import { asyncDelete, asyncGet } from '@/apis/rest.api';
 import React from 'react'
 import { useEffect, useState } from "react";
-
+import { FaEdit, FaTrash } from "react-icons/fa"
 
 export interface RegisterUser {
     id: number;
@@ -38,6 +38,17 @@ const Table = () => {
         }
     };
 
+    const deleteFoodMenu = async (id: number) => {
+        const value = window.prompt("Are you sure you want to delete?");
+        if (value == "yes") {
+            const { data, error } = await asyncDelete(userUrl.delete + id);
+            if (data && !error) {
+                setUser((c) => c.filter((f) => f.id != id));
+                setFilterUser((c) => c.filter((f) => f.id != id));
+            }
+        }
+    };
+
     useEffect(() => {
         fetchAllUser();
     }, []);
@@ -49,7 +60,7 @@ const Table = () => {
                 <div>
                     <input type="text"
                         onChange={filterSearch}
-                        className="border border-gray-400 rounded-md outline-none p-" />
+                        className="border border-gray-400 rounded-md outline-none p-2" />
                 </div>
             </div>
             <div className='p-2'>
@@ -58,8 +69,9 @@ const Table = () => {
                         <tr>
                             <th className='p-3'>S.N</th>
                             <th className='p-3'>User Name</th>
-                            <th className='p-3'>Password</th>
+                            {/* <th className='p-3'>Password</th> */}
                             <th className='p-3'>Email</th>
+                            <th className='p-3'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,8 +81,14 @@ const Table = () => {
                                     <tr key={i} className='hover:bg-gray-200 p-3 text-center'>
                                         <td className='p-3'>{i + 1}</td>
                                         <td className='p-3'>{data.name}</td>
-                                        <td className='p-3'>{data.password}</td>
+                                        {/* <td className='p-3'>{data.password}</td> */}
                                         <td className='p-3'>{data.email}</td>
+                                        <td><button
+                                            onClick={() => deleteFoodMenu(data.id)}
+                                            className="outline-none rounded-md text-sm text-red-600 "
+                                        >
+                                            <FaTrash size={21} />
+                                        </button></td>
                                     </tr>
                                 )
                             })
