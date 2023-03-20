@@ -12,10 +12,10 @@ const sideBarData: SideBarInterface[] = [
         title: 'Home',
         link: '/'
     },
-    // {
-    //     title: 'Our Menu',
-    //     link: '/menu'
-    // },
+    {
+        title: 'About Us',
+        link: '/about'
+    },
     // {
     //     title:'Gallery',
     //     link:'/gallery'

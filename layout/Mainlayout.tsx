@@ -2,7 +2,6 @@ import Footer from '@/components/Front Page/Footer';
 import Head from 'next/head';
 import React, { useState } from 'react'
 import FrontenedNavaBar from './FrontenedNavaBar';
-import SideBar from './SideBar';
 
 interface Props {
   title?: string;
