@@ -17,7 +17,7 @@ const About = () => {
     return (
         <>
             <Mainlayout title={'Admin'}>
-                <div className='flex mx-[3rem] gap-4 '>
+                <div className='mx-[3rem] gap-4 '>
                     <AboutUs />
                 </div>
             </Mainlayout >

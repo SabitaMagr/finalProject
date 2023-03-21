@@ -12,8 +12,8 @@ const Footer = () => {
                     you can show them in your footer by using this template.</p>
                 <div>
                     <span className=' font-bold text-xl flex justify-center'>Follow Us:</span>
-                    <span className=' ml-[40rem]'>______</span>
-                    <div className=' flex  justify-center'>
+                    <span className=' ml-[39rem]'>______</span>
+                    <div className=' flex  justify-center p-3'>
                         {
                             footerData.map((data, i) => {
                                 return (
