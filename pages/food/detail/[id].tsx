@@ -1,7 +1,6 @@
-import ProductDetail from '@/components/Front Page/ProductDetail'
-import Mainlayout from '@/layout/Mainlayout'
 import React from 'react'
-
+import Mainlayout from '../../../layout/Mainlayout';
+import ProductDetail from '../../../components/Front Page/ProductDetail'
 const detail = () => {
     return (
         <div>
