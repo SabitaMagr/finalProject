@@ -18,9 +18,9 @@ const AboutUs = () => {
                 <img src="/images/office.jpg" alt="" className=' rounded-full h-[26rem] w-[26rem]' />
             </div>
             <div className='flex flex-col items-center w-[60%] p-14'>
-                <span className=' font-black text-xl'>Estd.1993</span>
-                <span className=' font-bold text-lg py-3' >Best Cafe in the Valley</span>
-                <p className=' px-10'>Perfection and class are synonymous with the neoteric approach at Cafe Nina, and all its credit goes to its visionary founder, Nina. Just a few minutes' walk from the American embassy, you will see a lot of Americans indulging in breakfast sets during the morning or having a relaxing brunch here. The interior is lined in such a way that gives you the opportunity
+                <span className=' font-black text-2xl'>Estd.1993</span>
+                <span className=' font-bold text-2xl py-4' >Best Cafe in the Valley</span>
+                <p className=' px-40 text-center'>Perfection and class are synonymous with the neoteric approach at Cafe Nina, and all its credit goes to its visionary founder, Nina. Just a few minutes' walk from the American embassy, you will see a lot of Americans indulging in breakfast sets during the morning or having a relaxing brunch here. The interior is lined in such a way that gives you the opportunity
                     to make pleasant conversations with strangers or relax quietly in your own space. </p>
             </div>
         </div>
@@ -29,7 +29,6 @@ const AboutUs = () => {
 }
 
 export default AboutUs
-
 
 
 

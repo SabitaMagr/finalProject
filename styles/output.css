@@ -1180,6 +1180,36 @@ body {
   padding-bottom: 1.75rem !important;
 }
 
+.px-20 {
+  padding-left: 5rem !important;
+  padding-right: 5rem !important;
+}
+
+.px-32 {
+  padding-left: 8rem !important;
+  padding-right: 8rem !important;
+}
+
+.px-48 {
+  padding-left: 12rem !important;
+  padding-right: 12rem !important;
+}
+
+.px-44 {
+  padding-left: 11rem !important;
+  padding-right: 11rem !important;
+}
+
+.px-52 {
+  padding-left: 13rem !important;
+  padding-right: 13rem !important;
+}
+
+.py-4 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem !important;
 }
@@ -1238,6 +1268,10 @@ body {
 
 .text-center {
   text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
 }
 
 .text-2xl {

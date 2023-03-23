@@ -2,9 +2,12 @@ import React from 'react'
 
 const ProductDetail = () => {
     return (
-        <div>
-            <h1>dfkjbfkj</h1>
-        </div>
+        <>
+                <div>
+
+            </div>
+        </>
+
     )
 }
 
