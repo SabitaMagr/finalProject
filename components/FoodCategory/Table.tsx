@@ -93,15 +93,15 @@ const Table = () => {
                     <td className="p-3">{data.categoryName}</td>
                     <td className="p-3 flex gap-2 justify-center">
                       <Link href={`/foodCategory/${data.id}`}>
-                        <button className="outline-none bg-green-600  px-2 py-0.5 rounded-md text-sm  text-white ">
-                          edit
+                        <button className="outline-none bg-green-600  px-4 py-1.5 rounded-md text-sm  text-white ">
+                          Edit
                         </button>
                       </Link>
                       <button
                         onClick={() => deleteFoodCategory(data.id)}
-                        className="outline-none bg-red-600  px-2 py-0.5 rounded-md text-sm  text-white "
+                        className="outline-none bg-red-600  px-2 py-1.5 rounded-md text-sm  text-white "
                       >
-                        dlt
+                        Delete
                       </button>
                     </td>
                   </tr>

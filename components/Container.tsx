@@ -12,7 +12,7 @@ const Container = ({ children, breadCrumb }: Props) => {
   return (
     <div className=''>
       <div className='p-3 py-5 bg-white '>
-        <span className='flex gap-2 text-gray-700'>
+        <span className='flex gap-2 text-gray-500 '>
           {breadCrumb?.map((data, index) => {
             return (
               <Link key={index} href={data?.link as string} className="flex gap-3 text-sm">

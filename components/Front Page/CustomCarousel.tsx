@@ -7,7 +7,7 @@ import { FoodMenu } from '../Food/Form';
 const CustomCarousel = () => {
 
     return (
-        <div className='w-[85%] h-[30%]'>
+        <div className='w-[85%] h-[30%] animate-pulse'>
             {/* <Carousel autoplay>
                 {
                     // [0, 0, 0, 0, 0, 0, 0].map((sabita, i) => {

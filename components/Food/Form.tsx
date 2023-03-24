@@ -15,8 +15,9 @@ export interface FoodMenu {
   id: number;
   name: string;
   price: number;
+  description:string;
   photo: File[] | any;
-  status: number;
+  status: string|any;
   categoryType: string | any;
 }
 
@@ -40,6 +41,7 @@ const Form = ({ editData }: FormProps) => {
     payload.append('photo', value.photo[0])
     payload.append('price', value.price.toString())
     payload.append('categoryType', value.categoryType)
+    payload.append('description', value.description)
     payload.append('status', value.status)
     if (editData && editData?.id) {
       //update
@@ -80,13 +82,14 @@ const Form = ({ editData }: FormProps) => {
       setValue("name", editData?.name);
       setValue("price", editData?.price);
       setValue("status", editData?.status);
+      setValue("description", editData?.description);
       setValue("categoryType", editData?.categoryType);
       setValue("id", editData?.id);
       setToggleBtn(editData?.photo)
     }
   }, [editData]);
   return (
-    <div className="flex flex-col bg-white mx-auto mt-5 pb-8 justify-center  w-[65%] rounded-md h-[100%]">
+    <div className="flex flex-col bg-white mx-auto mt-3 pb-5 justify-center  w-[65%] rounded-md  border border-slate-200 shadow-xl">
       <h1 className=" flex justify-center p-4 bg-[#319df5] text-2xl font-bold">Food Menu</h1> <br />
       {/* {JSON.stringify(editData)} */}
       <form
@@ -193,7 +196,26 @@ const Form = ({ editData }: FormProps) => {
                 </small>
               )}
             </div>
+          </div>
+        </div>
 
+        <div className=" relative items-center">
+          <div className="flex justify-center gap-2">
+            <label htmlFor="" className="text-base p-2 w-[30%]">
+              Description:
+            </label>
+            <div className="w-[70%]">
+              <textarea
+                placeholder="Write  Description" cols="10" rows="4"
+                {...register("description", { required: true })}
+                className={`outline-none px-2 w-full rounded-sm text-sm  ${errors?.description ? 'border-red-500' : 'border-gray-400'} border py-1.5`}
+              ></textarea>
+              {errors?.description && (
+                <small className="w-full text-red-600 flex  right-0 top-0">
+                  Please write description
+                </small>
+              )}
+            </div>
           </div>
 
         </div>
@@ -233,7 +255,7 @@ const Form = ({ editData }: FormProps) => {
           </div>
 
         </div>
-        <div className="flex justify-center pt-5">
+        <div className="flex justify-center pt-3">
           <button
             type="submit"
             className="bg-[#2395f1]  text-white px-8 py-2 rounded-md"

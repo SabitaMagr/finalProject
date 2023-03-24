@@ -8,7 +8,7 @@ const Footer = () => {
         <>
             <div className=' p-5 text-white bg-black bg-opacity-60 border-t-black'>
                 <h1 className=' font-bold text-xl flex justify-center'>Get in Touch </h1>
-                <p className=' flex justify-between px-12'>Whatever you want your visitors to visit again, whether it is external resources, important secondary pages, sponsors, privacy policy, or terms and conditions,
+                <p className=' flex justify-between text-center px-[15rem]'>Whatever you want your visitors to visit again, whether it is external resources, important secondary pages, sponsors, privacy policy, or terms and conditions,
                     you can show them in your footer by using this template.</p>
                 <div>
                     <span className=' font-bold text-xl flex justify-center'>Follow Us:</span>

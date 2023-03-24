@@ -85,6 +85,7 @@ const Table = () => {
               <th className="p-3">Food Category</th>
               <th className="p-3">Price</th>
               <th className="p-3">Photo</th>
+              <th className="p-3">Description</th>
               <th className="p-3">Status</th>
               <th className="p-3">Action</th>
 
@@ -102,6 +103,7 @@ const Table = () => {
                     <td className="p-3 flex justify-center items-center ">
                       <img src={`http://localhost:5000/food/${data?.photo}`} height={50} width={50} alt="" />
                     </td>
+                    <td className="p-3 ">{data?.description}</td>
                     <td className="p-3">{foodStatusData?.find(f => f.value == data?.status)?.status}</td>
                     <td className="p-3 flex gap-2 justify-center items-center ">
                       <Link href={`/food/${data.id}`}>

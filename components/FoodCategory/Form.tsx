@@ -56,24 +56,24 @@ const Form = ({ editData }: FormProps) => {
     }
   }, [editData]);
   return (
-    <div className="flex flex-col bg-white mx-auto mt-8 pb-8 justify-center  w-[60%] h-[100%]">
+    <div className="flex flex-col bg-white mx-auto mt-8 pb-8 justify-center  w-[60%] h-[100%] border rounded-md border-slate-200 shadow-xl">
       <h1 className=" flex justify-center text-xl bg-[#078df7] p-4 font-bold">Food Category</h1> <br />
       {/* {JSON.stringify(editData)} */}
       <form
         onSubmit={handleSubmit(savefoodCategory)}
         action=""
-        className="flex-col flex gap-8"
+        className="flex-col flex gap-5 px-10"
       >
         <div className=" relative items-center">
           <div className="flex  justify-center gap-2">
             <label htmlFor="" className=" text-base p-2 w-[30%]">
               Category Code:
             </label>
-            <div>
+            <div className="w-[50%]">
               <input
                 placeholder="Enter Category Code"
                 {...register("categoryCode", { required: true })}
-                className="outline-none px-2 text-sm rounded-md  border-gray-400 border py-1"
+                className="outline-none px-2   border-gray-400 border py-1 w-full   text-sm"
                 type="text"
               />
               {errors?.categoryCode && (
@@ -90,11 +90,11 @@ const Form = ({ editData }: FormProps) => {
             <label htmlFor="" className="text-base p-2 w-[30%]">
               Category Name:
             </label>
-            <div>
+            <div className="w-[50%]">
               <input
                 placeholder="Enter Category Name"
                 {...register("categoryName", { required: true })}
-                className="outline-none px-2 text-sm rounded-md border-gray-400 border py-1.5"
+                className="outline-none px-2 text-sm  border-gray-400 border w-full py-1.5"
                 type="text"
               />
               {errors?.categoryName && (
@@ -109,7 +109,7 @@ const Form = ({ editData }: FormProps) => {
         <div className="flex justify-center pt-3">
           <button
             type="submit"
-            className="bg-[#2497f5] hover:bg-[#0585ee] text-white px-6 py-2 rounded-md"
+            className="bg-[#2497f5] hover:bg-[#0585ee] text-white px-10 py-2 rounded-md"
           >
             {editData ? "Update" : "Save"}
           </button>
