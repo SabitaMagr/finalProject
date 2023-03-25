@@ -1,3 +1,5 @@
+import CartDetail from '@/components/Order/CartDetail'
+import Mainlayout from '@/layout/Mainlayout'
 import React from 'react'
 
 const cart = () => {
@@ -11,6 +13,9 @@ const cart = () => {
 const Cart = () => {
     return (
         <>
+            <Mainlayout title={'Admin'}>
+                <CartDetail />
+            </Mainlayout>
         </>
     )
 }

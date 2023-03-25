@@ -1,35 +1,35 @@
 import { BsPerson } from "react-icons/bs";
 import { BiLockOpen } from "react-icons/bi";
-import { IoKeyOutline }  from 'react-icons/io5'
+import { IoKeyOutline } from 'react-icons/io5'
 
 
-export interface personalData{
-    id?:number;
-    name?:string;
-    icon?:React.ReactNode;
+export interface personalData {
+    id?: number;
+    name?: string;
+    icon?: React.ReactNode;
     link?: string;
 }
- const personalDataInfo:personalData[]=[
+const personalDataInfo: personalData[] = [
     {
-        id:1,
-        name:'My Profile',
-        icon:<BsPerson/>,
-        link:''
+        id: 1,
+        name: 'My Profile',
+        icon: <BsPerson />,
+        link: '/user/profile'
     },
     {
-        id:2,
-        name:'Change Password',
-        icon:<BiLockOpen/>,
-        link:''
+        id: 2,
+        name: 'Change Password',
+        icon: <BiLockOpen />,
+        link: '/user/password'
     },
     {
-        id:3,
-        name:'Log Out',
-        icon:<IoKeyOutline/>,
-        link:'http://localhost:3000'
+        id: 3,
+        name: 'Log Out',
+        icon: <IoKeyOutline />,
+        link: 'http://localhost:3000'
     },
 
- ]
+]
 
- export default personalDataInfo;
+export default personalDataInfo;
 
