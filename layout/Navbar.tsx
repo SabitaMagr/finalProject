@@ -5,12 +5,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import personalDataInfo from '@/data/personalData';
 import { useRouter } from 'next/router';
+import { useGlobal } from '@/context/GlobalContext';
 
 interface Props {
     toggle: boolean;
     setToggle: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const Navbar = ({ toggle, setToggle }: Props) => {
+    const useContext = useGlobal();
     const [show, setShow] = useState<Boolean>(false);
     const displayDiv = () => setShow((show) => !show);
 
@@ -25,7 +27,8 @@ const Navbar = ({ toggle, setToggle }: Props) => {
                 </span>
             </div>
             <div className='flex gap-3 items-center relative'>
-                <span>Sabita</span>
+                <span>{useContext?.user?.firstName || 'Sabita'}</span>
+                {/* {JSON.stringify(useContext?.cart)} */}
                 <span className=' text-slate-700' onClick={() => displayDiv()}>
                     <BiUserCircle size={27} />
                 </span>

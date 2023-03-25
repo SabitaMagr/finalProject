@@ -1,5 +1,6 @@
 
 
+import { useGlobal } from '@/context/GlobalContext';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { SetStateAction } from 'react'
@@ -24,26 +25,30 @@ const LoginForm = ({ setState, state }: LoginProps) => {
         register, handleSubmit,
         setValue, formState: { errors },
     } = useForm<Register>();
+    const useContext = useGlobal();
 
-    const Router = useRouter();
+    const router = useRouter();
     const saveLoginForm = async (value: Register) => {
         const payload = {
             ...value,
             id: new Date().getTime(),
         };
 
+        await useContext?.login(value?.name, value?.password).then(() => {
+            router.push('/dashbaord')
+        })
         // const { data,error } =await asyncPost();
         // if(data && !error){
         //     alert("You are registered!!");
         //     Router.push("/login");
         // }
         alert("Welcome!!");
-        Router.push("/foodCategory");
+        router.push("/foodCategory");
     };
     return (
-        <div className=' z-50'>
+        <div className=' z-50' >
             {/* <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}> */}
-            <form action="" onSubmit={handleSubmit(saveLoginForm)} className="flex-col flex w-[100%] bg-[#f0f1f5] border rounded-lg ">
+            < form action="" onSubmit={handleSubmit(saveLoginForm)} className="flex-col flex w-[100%] bg-[#f0f1f5] border rounded-lg " >
                 <h1 className=' text-center font-bold text-[2rem]  border-x-[1px] border-b-[1px] hover:text-white hover:bg-black rounded-bl-[500rem] rounded-br-[500rem] mb-3 border-[#424242]'>Login</h1>
                 <Logo />
                 <div className='flex-col flex gap-5 justify-center pb-8 px-10'>
@@ -56,7 +61,7 @@ const LoginForm = ({ setState, state }: LoginProps) => {
                         </div>
                         {errors?.name && (
                             <small className='w-full text-red-600 flex justify-center right-0 top-0'>
-                                Name is Required.
+                                User Name is Required.
                             </small>
                         )}
                     </div>
@@ -98,8 +103,8 @@ const LoginForm = ({ setState, state }: LoginProps) => {
 
                 </div>
 
-            </form>
-        </div>
+            </form >
+        </div >
 
 
         //  </div>

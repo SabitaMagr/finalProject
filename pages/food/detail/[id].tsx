@@ -1,6 +1,7 @@
 import React from 'react'
 import Mainlayout from '../../../layout/Mainlayout';
 import ProductDetail from '../../../components/Front Page/ProductDetail'
+import { useGlobal } from '@/context/GlobalContext';
 const detail = () => {
     return (
         <div>

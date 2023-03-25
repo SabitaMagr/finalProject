@@ -4,8 +4,10 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { FoodMenu } from '../../components/Food/Form'
 import Image from 'next/image';
+import { useGlobal } from '@/context/GlobalContext';
 
 const ProductDetail = () => {
+    const useContext = useGlobal()
     const router = useRouter();
     const id = router.query?.id;
     // const {id} = router.query// object destructing 
@@ -29,7 +31,7 @@ const ProductDetail = () => {
         return () => {
             //clean up coide
         }
-    }, []);
+    }, [router.isReady]);
     return (
         <div className='flex gap-10 py-5 min-h-[60vh]'>
             {/* {JSON.stringify(foodDetails)} */}
@@ -49,12 +51,14 @@ const ProductDetail = () => {
                     <span className=' text-black text-xl px-4' >{value}</span>
                     <button onClick={() => increaseValue()} disabled={value >= 20} className=' font-extrabold text-xl px-3 hover:bg-slate-300'> + </button>
                 </div>
+                {
+                    JSON.stringify(useContext?.cart)
+                }
                 <div className=' py-5 flex  gap-8'>
                     <button className=' text-center text-lg bg-blue-600 px-12 py-2 hover:bg-blue-400 rounded-md'>Buy Now</button>
-                    <button className=' text-center text-lg bg-orange-600 px-12 py-2 hover:bg-orange-400  rounded-md'>Add to Cart </button>
+                    <button onClick={() => useContext?.setCart((c: any) => [...c, { foodDetails, quantity: value }])} className=' text-center text-lg bg-orange-600 px-12 py-2 hover:bg-orange-400  rounded-md'>Add to Cart </button>
                 </div>
             </div>
-
         </div>
 
     )
