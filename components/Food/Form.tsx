@@ -15,9 +15,9 @@ export interface FoodMenu {
   id: number;
   name: string;
   price: number;
-  description:string;
+  description: string;
   photo: File[] | any;
-  status: string|any;
+  status: string | any;
   categoryType: string | any;
 }
 
@@ -89,8 +89,8 @@ const Form = ({ editData }: FormProps) => {
     }
   }, [editData]);
   return (
-    <div className="flex flex-col bg-white mx-auto mt-3 pb-5 justify-center  w-[65%] rounded-md  border border-slate-200 shadow-xl">
-      <h1 className=" flex justify-center p-4 bg-[#319df5] text-2xl font-bold">Food Menu</h1> <br />
+    <div className="flex flex-col bg-white mx-auto my-3   justify-center  w-[65%] rounded-md  border border-slate-200 shadow-xl">
+      <h1 className=" flex justify-center p-4 text-white bg-[#319df5] text-2xl font-bold">Food Menu</h1> <br />
       {/* {JSON.stringify(editData)} */}
       <form
         onSubmit={handleSubmit(saveFoodMenu)}
@@ -255,7 +255,7 @@ const Form = ({ editData }: FormProps) => {
           </div>
 
         </div>
-        <div className="flex justify-center pt-3">
+        <div className="flex justify-center mb-5 py-1">
           <button
             type="submit"
             className="bg-[#2395f1]  text-white px-8 py-2 rounded-md"

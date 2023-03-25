@@ -5,6 +5,7 @@ import { FoodMenu } from '../Food/Form';
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import { AnyARecord } from 'dns';
+import FoodCardSkeleton from '../skeleton/FoodCardSkeleton';
 
 
 const FoodLIst = () => {
@@ -22,7 +23,7 @@ const FoodLIst = () => {
         fetchFoodList();
     }, []);
 
-    const handleClick = (id :any) => {
+    const handleClick = (id: any) => {
         if (id) {
             router.push(`/food/detail/${id}`);
         }
@@ -37,7 +38,7 @@ const FoodLIst = () => {
                     foodList?.length > 0 ? (
                         foodList?.map((data, i) => {
                             return (
-                                <div key={i} onClick={()=>handleClick(data?.id)} className=" rounded-lg border-2 bg-white hover:shadow-md hover:bg-black my-5 hover:text-white" >
+                                <div key={i} onClick={() => handleClick(data?.id)} className=" rounded-lg border-2 bg-white hover:shadow-md hover:bg-black my-5 hover:text-white" >
                                     <img src={`http://localhost:5000/food/${data?.photo}`} height={300} width={1100} alt="" />
                                     <div className=' p-2'>
                                         <h4 className=' font-semibold' >{data.name}</h4>
@@ -45,7 +46,10 @@ const FoodLIst = () => {
                                     </div>
                                 </div>
                             )
-                        })) : ""
+                        })) :
+                        Array(10).fill(0).map((s, i) => (
+                            <FoodCardSkeleton key={i} />
+                        ))
                 }
             </div>
         </>
