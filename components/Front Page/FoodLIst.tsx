@@ -41,8 +41,8 @@ const FoodLIst = () => {
                                 <div key={i} onClick={() => handleClick(data?.id)} className=" rounded-lg border-2 bg-white hover:shadow-md hover:bg-black my-5 hover:text-white" >
                                     <img src={`http://localhost:5000/food/${data?.photo}`} height={300} width={1100} alt="" />
                                     <div className=' p-2'>
-                                        <h4 className=' font-semibold' >{data.name}</h4>
-                                        <span className=' text-lg text-orange-600'>Rs.{data.price}</span>
+                                        <h4 className=' font-semibold' >{data?.name}</h4>
+                                        <span className=' text-lg text-orange-600'>Rs.{data?.price}</span>
                                     </div>
                                 </div>
                             )

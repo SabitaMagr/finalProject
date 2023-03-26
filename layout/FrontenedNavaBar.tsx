@@ -1,11 +1,13 @@
 import sideBarData from '@/data/sideBarData'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 import React from 'react'
 import { FaCartArrowDown } from "react-icons/fa";
 import { FiPhoneCall } from 'react-icons/fi'
 
 
 const FrontenedNavaBar = () => {
+    const router = useRouter();
     return (
         <div>
             <div className='fixed flex z-50   text-white left-0 right-0 bg-black border  bg-opacity-70'>
@@ -31,7 +33,13 @@ const FrontenedNavaBar = () => {
                             )
                         })
                     }
-                    <span><FaCartArrowDown size={24} /></span>
+                    <span onClick={() => router.push('/order/cart')}>
+                        <FaCartArrowDown size={24} />
+                    </span>
+                    {/* <Link href={"/order/cart"} >
+                    </Link> */}
+                    {/* <Link href={"/order/cart"} dangerouslySetInnerHTML={{__html: '<span><FaCartArrowDown size={24} /></span>'}} /> */}
+
                 </ul>
             </div>
         </div>
