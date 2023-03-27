@@ -835,6 +835,10 @@ body {
   width: 57% !important;
 }
 
+.w-\[58\%\] {
+  width: 58% !important;
+}
+
 .w-\[60\%\] {
   width: 60% !important;
 }
@@ -861,14 +865,6 @@ body {
 
 .w-full {
   width: 100% !important;
-}
-
-.w-\[45\%\] {
-  width: 45% !important;
-}
-
-.w-\[58\%\] {
-  width: 58% !important;
 }
 
 .table-fixed {
@@ -917,6 +913,14 @@ body {
   gap: 2.5rem !important;
 }
 
+.gap-12 {
+  gap: 3rem !important;
+}
+
+.gap-14 {
+  gap: 3.5rem !important;
+}
+
 .gap-16 {
   gap: 4rem !important;
 }
@@ -947,18 +951,6 @@ body {
 
 .gap-8 {
   gap: 2rem !important;
-}
-
-.gap-6 {
-  gap: 1.5rem !important;
-}
-
-.gap-12 {
-  gap: 3rem !important;
-}
-
-.gap-14 {
-  gap: 3.5rem !important;
 }
 
 .gap-y-1 {
@@ -1313,6 +1305,16 @@ body {
   padding-right: 10rem !important;
 }
 
+.px-6 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.px-7 {
+  padding-left: 1.75rem !important;
+  padding-right: 1.75rem !important;
+}
+
 .px-8 {
   padding-left: 2rem !important;
   padding-right: 2rem !important;
@@ -1366,21 +1368,6 @@ body {
 .py-7 {
   padding-top: 1.75rem !important;
   padding-bottom: 1.75rem !important;
-}
-
-.px-7 {
-  padding-left: 1.75rem !important;
-  padding-right: 1.75rem !important;
-}
-
-.px-5 {
-  padding-left: 1.25rem !important;
-  padding-right: 1.25rem !important;
-}
-
-.px-6 {
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
 }
 
 .pb-2 {

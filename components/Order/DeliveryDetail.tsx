@@ -65,7 +65,7 @@ const DeliveryDetail = ({ setState, state }: DeliveryProps) => {
                             </div>
                             {errors?.receiverAddress && (
                                 <small className='w-full text-red-600 flex justify-center right-0 top-0'>
-                                    Receiver   Name is Required.
+                                    Receiver   Address is Required.
                                 </small>
                             )}
                         </div>
@@ -84,7 +84,7 @@ const DeliveryDetail = ({ setState, state }: DeliveryProps) => {
                             </div>
                             {errors?.receiverPhoneNo && (
                                 <small className='w-full text-red-600 flex justify-center right-0 top-0'>
-                                    Receiver   Name is Required.
+                                    Receiver Phone No is Required.
                                 </small>
                             )}
                         </div>

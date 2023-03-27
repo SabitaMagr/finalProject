@@ -1,4 +1,5 @@
 import ChangePassword from '@/components/Users/ChangePassword'
+import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import React from 'react'
 
 const password = () => {
@@ -18,3 +19,11 @@ const Password = () => {
 }
 
 export default password
+export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
+
+    return {
+        props: {
+            type: 'admin'
+        }
+    }
+}
