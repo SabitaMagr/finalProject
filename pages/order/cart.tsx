@@ -1,6 +1,7 @@
 import CartDetail from '@/components/Order/CartDetail'
+import DeliveryDetail from '@/components/Order/DeliveryDetail'
 import Mainlayout from '@/layout/Mainlayout'
-import React from 'react'
+import React, { useState } from 'react'
 
 const cart = () => {
     return (
@@ -11,10 +12,16 @@ const cart = () => {
 }
 
 const Cart = () => {
+    const [state, setState] = useState<boolean>(false);
     return (
         <>
             <Mainlayout title={'Admin'}>
-                <CartDetail />
+                {
+                    !state ?
+                        <CartDetail setState={setState} state={state} />
+                        :
+                        <DeliveryDetail setState={setState} state={state} />
+                }
             </Mainlayout>
         </>
     )

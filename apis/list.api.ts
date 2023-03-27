@@ -39,10 +39,19 @@ const contact = {
     delete: '/contact/',
 }
 
+const delivery = {
+    get: '/delivery',
+    post: '/delivery',
+    put: '/delivery/',
+    delete: '/delivery/',
+}
+
 export {
     FoodMenu as FoodMenuUrl,
     user as userUrl,
     orderList as orderUrl,
     foodCategory as foodCategoryUrl,
-    contact as contactUrl
+    contact as contactUrl,
+    delivery as deliveryUrl
+
 }
