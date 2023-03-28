@@ -28,11 +28,7 @@ const sideBarData: SideBarInterface[] = [
         title: 'Contact Us',
         link: '/contact'
     },
-    {
-        title: 'Login',
-        link: '/login',
-        icon: <BiUserCircle size={27} />
-    }
+
     // ,
     // {
     //     icon: <FaCartArrowDown />

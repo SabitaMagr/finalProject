@@ -3,7 +3,7 @@
 import { useGlobal } from '@/context/GlobalContext';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { SetStateAction } from 'react'
+import React, { SetStateAction, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import Logo from './Logo';
 
@@ -21,12 +21,12 @@ export interface Register {
 }
 
 const LoginForm = ({ setState, state }: LoginProps) => {
+    const global = useGlobal();
     const {
         register, handleSubmit,
         setValue, formState: { errors },
     } = useForm<Register>();
     const useContext = useGlobal();
-
     const router = useRouter();
     const saveLoginForm = async (value: Register) => {
         const payload = {
@@ -34,17 +34,20 @@ const LoginForm = ({ setState, state }: LoginProps) => {
             id: new Date().getTime(),
         };
 
-        await useContext?.login(value?.name, value?.password).then(() => {
-            router.push('/dashbaord')
+        await useContext?.login(value?.name, value?.password).then((res) => {
+            if (res == 'User') {
+                router.push("/");
+            } else {
+                router.push("/foodCategory");
+            }
+            // router.push('/dashbaord')
         })
-        // const { data,error } =await asyncPost();
-        // if(data && !error){
-        //     alert("You are registered!!");
-        //     Router.push("/login");
-        // }
-        alert("Welcome!!");
-        router.push("/foodCategory");
     };
+    useEffect(() => {
+        if (global?.user) {
+            router.push('/')
+        }
+    }, [])
     return (
         <div className=' z-50' >
             {/* <div className="flex mx-auto p-16 justify-start pl-[10rem] min-h-screen  w-[100%] h-[100%] !bg-no-repeat !bg-cover !bg-center " style={{background:'url(/images/Login.avif)'}}> */}
@@ -68,7 +71,7 @@ const LoginForm = ({ setState, state }: LoginProps) => {
                     <div className=''>
                         <div className='items-center relative'>
                             <label htmlFor="password" className=' mt-4 absolute -top-1 font-[700] ml-2 bg-white'>Password</label>   <br />
-                            <input type="text" placeholder='Enter Password'
+                            <input type="password" placeholder='Enter Password'
                                 {...register("password", { required: true })}
                                 className="outline-none rounded-md px-2 w-full h-[3rem] border-gray-400 border py-1.5" />
                         </div>

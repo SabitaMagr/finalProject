@@ -1,10 +1,16 @@
 import axios from "axios";
 
-const baseurl: string = "http://localhost:5000/api";
-
+const Api = axios.create({
+  headers: {
+    Authorization: `Bearer ${
+      typeof window !== "undefined" ? sessionStorage.getItem("token") : ""
+    }`,
+  },
+  baseURL: "http://localhost:5000/api",
+});
 const asyncGet = async (api: string, option?: any) => {
   try {
-    const response = await axios.get(baseurl + api, option); //get axois instance
+    const response = await Api.get(api, option); //get axois instance
     return { data: response.data }; //return data from instance
   } catch (e: any) {
     return {
@@ -15,7 +21,7 @@ const asyncGet = async (api: string, option?: any) => {
 
 const asyncPost = async (api: string, payload: any, option?: any) => {
   try {
-    const response = await axios.post(baseurl + api, payload, option); //get axois instance
+    const response = await Api.post(api, payload, option); //get axois instance
     return { data: response.data }; //return data from instance
   } catch (e: any) {
     return {
@@ -25,7 +31,7 @@ const asyncPost = async (api: string, payload: any, option?: any) => {
 };
 const asyncPut = async (api: string, payload: any, option?: any) => {
   try {
-    const response = await axios.put(baseurl + api, payload, option); //get axois instance
+    const response = await Api.put(api, payload, option); //get axois instance
     return { data: response.data }; //return data from instance
   } catch (e: any) {
     return {
@@ -35,7 +41,7 @@ const asyncPut = async (api: string, payload: any, option?: any) => {
 };
 const asyncPatch = async (api: string, payload: any, option?: any) => {
   try {
-    const response = await axios.patch(baseurl + api, payload, option); //get axois instance
+    const response = await Api.patch(api, payload, option); //get axois instance
     return { data: response.data }; //return data from instance
   } catch (e: any) {
     return {
@@ -45,7 +51,7 @@ const asyncPatch = async (api: string, payload: any, option?: any) => {
 };
 const asyncDelete = async (api: string) => {
   try {
-    const response = await axios.delete(baseurl + api); //get axois instance
+    const response = await Api.delete(api); //get axois instance
     return { data: response.data }; //return data from instance
   } catch (e: any) {
     return {

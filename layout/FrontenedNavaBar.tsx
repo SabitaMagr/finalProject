@@ -1,13 +1,16 @@
+import { useGlobal } from '@/context/GlobalContext';
 import sideBarData from '@/data/sideBarData'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import React from 'react'
+import { BiUserCircle } from 'react-icons/bi';
 import { FaCartArrowDown } from "react-icons/fa";
 import { FiPhoneCall } from 'react-icons/fi'
 
 
 const FrontenedNavaBar = () => {
     const router = useRouter();
+    const contex = useGlobal()
     return (
         <div>
             <div className='fixed flex z-50   text-white left-0 right-0 bg-black border  bg-opacity-70'>
@@ -32,6 +35,20 @@ const FrontenedNavaBar = () => {
                                 </Link>
                             )
                         })
+                    }
+                    {
+                        !contex?.user ?
+                            < Link href={'/login'}>
+                                <li className='p-2 hover:rounded-md hover:transition-all hover:ease-in-out hover:duration-[2s] justify-between items-center flex gap-2  hover:bg-black  hover:text-white'>
+                                    <span><BiUserCircle size={27} /></span>
+                                    <span>
+                                        Login
+                                    </span>
+                                </li>
+                            </Link> :
+                            <span>
+                                {contex?.user?.name}
+                            </span>
                     }
                     <span onClick={() => router.push('/order/cart')}>
                         <FaCartArrowDown size={24} />
