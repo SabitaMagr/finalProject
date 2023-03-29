@@ -1,6 +1,7 @@
 
 
 import { useGlobal } from '@/context/GlobalContext';
+import { message } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { SetStateAction, useEffect } from 'react'
@@ -35,12 +36,15 @@ const LoginForm = ({ setState, state }: LoginProps) => {
         };
 
         await useContext?.login(value?.name, value?.password).then((res) => {
-            if (res == 'User') {
+            if (res?.role == 'User') {
                 router.push("/");
             } else {
                 router.push("/foodCategory");
             }
             // router.push('/dashbaord')
+        }).catch(e => {
+            console.log(e)
+            message.error(e?.message || 'Something went wrong')
         })
     };
     useEffect(() => {

@@ -1,16 +1,45 @@
+import { orderUrl } from '@/apis/list.api';
 import { useGlobal } from '@/context/GlobalContext';
+import { asyncGet, asyncPost, asyncPut } from "@/apis/rest.api";
 import React, { SetStateAction, useState } from 'react'
+import { useForm } from 'react-hook-form';
 
 interface CardProps {
     state: boolean,
     setState: React.Dispatch<SetStateAction<boolean>>
 }
 
+export interface Order {
+    orderId: number;
+    foodName: string;
+    price: number;
+    quantity: number;
+    total: number;
+}
+
 const CartDetail = ({ setState, state }: CardProps) => {
     const useContext = useGlobal();
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        formState: { errors },
+    } = useForm<Order>();
+
+    const saveOrder = async (value: Order) => {
+        const payload = {
+            ...value
+        };
+
+        const { data, error } = await asyncPost(orderUrl.post, payload);
+        if (data && !error) {
+            alert("Your order has been registered!!");
+            setState(s => !s)
+        }
+    };
 
     return (
-        <div className=' p-5 flex justify-center   bg-white min-h-screen'>
+        <form action="" onSubmit={handleSubmit(saveOrder)} className=' p-5 flex justify-center   bg-white min-h-screen'>
             <div className='  border w-[60%] h-[70%] shadow-lg border-slate-100 rounded-md '>
                 <span className=' bg-red-400 text-black font-black text-2xl flex justify-center p-4'>Your Cart</span>
                 <div className=' p-5'>
@@ -29,10 +58,11 @@ const CartDetail = ({ setState, state }: CardProps) => {
                                     return (
                                         <tr className=' border-b  border-b-slate-200 py-2' key={i} >
                                             {/* {JSON.stringify(data)} */}
-                                            <td className=' text-center p-3'>{data?.name}</td>
-                                            <td className=' text-center p-3'>Rs {data?.price}</td>
-                                            <td className=' text-center p-3'>{data?.quantity}</td>
-                                            <td className=' text-center p-3'>Rs {data?.price * data?.quantity}</td>
+                                            <td {...register("foodName")}
+                                                className=' text-center p-3'>{data?.name}</td>
+                                            <td {...register("price")} className=' text-center p-3'>Rs {data?.price}</td>
+                                            <td  {...register("quantity")} className=' text-center p-3'>{data?.quantity}</td>
+                                            <td {...register("total")} className=' text-center p-3'>Rs {data?.price * data?.quantity}</td>
                                         </tr>
                                     )
                                 })
@@ -51,7 +81,7 @@ const CartDetail = ({ setState, state }: CardProps) => {
                 </div>
             </div>
 
-        </div>
+        </form>
     )
 }
 

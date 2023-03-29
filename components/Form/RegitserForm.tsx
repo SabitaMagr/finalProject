@@ -19,7 +19,7 @@ interface RegisterProps {
 }
 
 export interface Register {
-    id: number;
+    id: string;
     name: string;
     email: string;
     password: string;

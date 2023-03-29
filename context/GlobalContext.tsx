@@ -20,15 +20,14 @@ export const GlobalContextProvider = ({ children }: { children: React.ReactNode 
     const [cart, setCart] = useState<any[]>([])
     const [user, setUser] = useState<User | null>(null)
     const router = useRouter()
+    //login session
     const login = async (username: string, password: string): Promise<any> => {
         //api clall
         const payload = { email: username, password }
         const { data, error } = await asyncPost(authUrl?.login, payload)
         if (data && !error) {
-            console.log(data?.data?.user)
             setUser(data?.data?.user)
             sessionStorage.setItem('token', data?.data?.token?.access_token)
-
             return Promise.resolve(data?.data?.user)
         } else {
             return Promise.reject(error)

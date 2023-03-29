@@ -12,7 +12,7 @@ export interface Deilvery {
     id: number;
     name: string;
     deliveryDate: Date;
-    delibveryTime: string;
+    delibveryTime: Date;
     phoneNumber: string;
     address: string;
     receiverName: string;
