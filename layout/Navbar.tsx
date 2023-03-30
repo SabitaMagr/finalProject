@@ -1,7 +1,6 @@
-import React from 'react'
 import { BiUserCircle } from "react-icons/bi";
 import { BsList } from "react-icons/bs";
-import { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react'
 import Link from 'next/link';
 import personalDataInfo from '@/data/personalData';
 import { useRouter } from 'next/router';
@@ -15,10 +14,24 @@ const Navbar = ({ toggle, setToggle }: Props) => {
     const useContext = useGlobal();
     const [show, setShow] = useState<Boolean>(false);
     const displayDiv = () => setShow((show) => !show);
+    const ref = useRef<HTMLDivElement>(null);
+
+    const handleClick = (e: MouseEvent) => {
+        if (ref.current && !ref.current.contains(e?.target as Node)) {
+            setShow(false)
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("click", handleClick);
+        return () => {
+            document.removeEventListener("click", handleClick);
+        };
+    }, [ref]);
 
     const router = useRouter();
     return (
-        <div
+        <div ref={ref}
             className={`fixed p-5 bg-white top-0 ${toggle ? "pl-[5rem]" : "pl-[5rem]"} text-blac
      shadow-md flex justify-between left-0 right-0`}>
             <div className={`${!toggle ? "ml-36" : "ml-1"}`}>
