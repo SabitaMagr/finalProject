@@ -14,7 +14,7 @@ interface LoginProps {
     setState: React.Dispatch<SetStateAction<boolean>>
 }
 
-export interface Register {
+export interface Login {
     id: number;
     name: string;
     password: string;
@@ -26,10 +26,10 @@ const LoginForm = ({ setState, state }: LoginProps) => {
     const {
         register, handleSubmit,
         setValue, formState: { errors },
-    } = useForm<Register>();
+    } = useForm<Login>();
     const useContext = useGlobal();
     const router = useRouter();
-    const saveLoginForm = async (value: Register) => {
+    const saveLoginForm = async (value: Login) => {
         const payload = {
             ...value,
             id: new Date().getTime(),
