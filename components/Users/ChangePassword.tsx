@@ -7,20 +7,6 @@ import { Register } from '../Form/RegitserForm';
 
 const ChangePassword = () => {
     const [show, setShow] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
-
-    const handleClick = (e: MouseEvent) => {
-        if (ref.current && !ref.current.contains(e?.target as Node)) {
-            setShow(false)
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener("click", handleClick);
-        return () => {
-            document.removeEventListener("click", handleClick);
-        };
-    }, [ref]);
     const {
         register,
         handleSubmit,
@@ -52,7 +38,7 @@ const ChangePassword = () => {
     // }, [editData]);
 
     return (
-        <div ref={ref} className=' flex justify-center my-14'>
+        <div className=' flex justify-center my-14'>
             <form onSubmit={handleSubmit(saveChangePsw)}
                 action="" className=' rounded-md bg-white  w-[30%]  h-[60%] border border-slate-100 shadow-xl'>
                 <span className=' border-b rounded-md bg-blue-300 flex justify-center p-3 text-2xl font-medium border-b-slate-200 '>Change Password</span>

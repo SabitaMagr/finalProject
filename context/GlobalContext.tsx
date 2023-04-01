@@ -44,7 +44,7 @@ export const GlobalContextProvider = ({ children }: { children: React.ReactNode 
         if (data && !error) {
             setUser(data?.data?.user)
         } else {
-            router.push('/')
+            // router.push('/')
         }
     }
 

@@ -31,7 +31,7 @@ const DeliveryDetail = ({ setState, state }: DeliveryProps) => {
 
     const saveDeliveryForm = async (value: Deilvery) => {
         const payload = {
-            ...value
+            // ...value
         };
 
         const { data, error } = await asyncPost(deliveryUrl.post, payload);
