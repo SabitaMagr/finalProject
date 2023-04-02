@@ -12,7 +12,7 @@ export interface Deilvery {
     id: number;
     name: string;
     deliveryDate: Date;
-    delibveryTime: Date;
+    deliveryTime: Date;
     phoneNumber: string;
     address: string;
     receiverName: string;
@@ -31,7 +31,10 @@ const DeliveryDetail = ({ setState, state }: DeliveryProps) => {
 
     const saveDeliveryForm = async (value: Deilvery) => {
         const payload = {
-            // ...value
+            order: localStorage.getItem('cart'),
+            delivery: {
+                ...value
+            }
         };
 
         const { data, error } = await asyncPost(deliveryUrl.post, payload);
@@ -72,7 +75,7 @@ const DeliveryDetail = ({ setState, state }: DeliveryProps) => {
                         <div className='relative '>
                             <div className=' flex p-5 gap-12'>
                                 <label htmlFor="" className=' flex justify-center'>Delivery Time :</label>
-                                <input type="time" className='border w-[58%] py-2.5  px-2.5 outline-none  rounded-md flex justify-center border-slate-200' />
+                                <input type="time" {...register("deliveryTime")} className='border w-[58%] py-2.5  px-2.5 outline-none  rounded-md flex justify-center border-slate-200' />
                             </div>
                         </div>
                     </div>
@@ -91,7 +94,7 @@ const DeliveryDetail = ({ setState, state }: DeliveryProps) => {
                         <div className='relative '>
                             <div className=' flex p-5 gap-14'>
                                 <label htmlFor="" className=' flex justify-center'>Delivery Date :</label>
-                                <input type="date" className='border py-2.5 w-[58%]  px-2.5 outline-none  rounded-md flex justify-center border-slate-200' />
+                                <input type="date" className='border py-2.5 w-[58%] {...register("deliveryDate")}   px-2.5 outline-none  rounded-md flex justify-center border-slate-200' />
                             </div>
                         </div>
                     </div>

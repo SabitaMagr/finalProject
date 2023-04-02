@@ -1,4 +1,4 @@
-import { orderUrl } from '@/apis/list.api';
+// import { orderUrl } from '@/apis/list.api';
 import { useGlobal } from '@/context/GlobalContext';
 import { asyncGet, asyncPost, asyncPut } from "@/apis/rest.api";
 import React, { SetStateAction, useState } from 'react'
@@ -11,7 +11,7 @@ interface CardProps {
 
 export interface Order {
     orderId: number;
-    foodName: string;
+    foodId: string;
     price: number;
     quantity: number;
     total: number;
@@ -26,17 +26,17 @@ const CartDetail = ({ setState, state }: CardProps) => {
         formState: { errors },
     } = useForm<Order>();
 
-    const saveOrder = async (value: Order) => {
-        const payload = {
-            ...value
-        };
+    // const saveOrder = async (value: Order) => {
+    //     const payload = {
+    //         ...value
+    //     };
 
-        const { data, error } = await asyncPost(orderUrl.post, payload);
-        if (data && !error) {
-            alert("Your order has been registered!!");
-            setState(s => !s)
-        }
-    };
+    //     const { data, error } = await asyncPost(orderUrl.post, payload);
+    //     if (data && !error) {
+    //         alert("Your order has been registered!!");
+    //         setState(s => !s)
+    //     }
+    // };
 
     return (
         <form action="" onSubmit={handleSubmit(saveOrder)} className=' p-5 flex justify-center   bg-white min-h-screen'>

@@ -16,12 +16,12 @@ const foodCategory = {
   delete: "/food-category/",
 };
 
-const orderList = {
-  get: "/order",
-  post: "/order",
-  put: "/order/",
-  delete: "/order/",
-};
+// const orderList = {
+//   get: "/order",
+//   post: "/order",
+//   put: "/order/",
+//   delete: "/order/",
+// };
 
 const FoodMenu = {
   get: "/food",
@@ -50,7 +50,7 @@ const auth = {
 export {
   FoodMenu as FoodMenuUrl,
   user as userUrl,
-  orderList as orderUrl,
+  // orderList as orderUrl,
   foodCategory as foodCategoryUrl,
   contact as contactUrl,
   delivery as deliveryUrl,
